@@ -528,6 +528,7 @@ async function cargarMatches() {
         ciudad: userProfile.ciudad_nac || 'Buenos Aires Argentina',
         nombre: userProfile.nombre,
         genero: userProfile.genero
+        user_id: currentUser.id
       })
     });
     const data = await resp.json();
