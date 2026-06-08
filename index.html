@@ -22,48 +22,41 @@ body{font-family:'Cormorant Garamond',serif;background:var(--paper);color:var(--
 .star{position:absolute;border-radius:50%;background:var(--gold);opacity:0;animation:twinkle var(--d,3s) ease-in-out infinite var(--delay,0s)}
 @keyframes twinkle{0%,100%{opacity:0}50%{opacity:var(--op,.4)}}
 
-/* SCREENS */
 .screen{display:none;position:relative;z-index:1;min-height:100vh;padding:2rem 1rem 4rem}
 .screen.active{display:flex;flex-direction:column;align-items:center;justify-content:center}
+.screen.top{justify-content:flex-start;padding-top:0}
 .wrap{width:100%;max-width:680px;margin:0 auto}
 
-/* TYPOGRAPHY */
 .title-mark{font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.2em;color:var(--gold);text-transform:uppercase;margin-bottom:.75rem;text-align:center}
 h1{font-size:3rem;font-weight:300;line-height:1.1;letter-spacing:-.01em;text-align:center}
 h1 em{font-style:italic;color:var(--gold)}
-h2{font-size:1.6rem;font-weight:300;margin-bottom:1rem}
 .subtitle{font-size:1rem;color:var(--muted);font-style:italic;margin-top:.5rem;text-align:center}
 
-/* DIVIDER */
 .divider{display:flex;align-items:center;gap:1rem;margin:2rem 0;color:var(--border)}
 .divider::before,.divider::after{content:'';flex:1;height:1px;background:var(--border)}
 .divider span{font-size:1.1rem;color:var(--gold)}
 
-/* CARDS */
 .card{background:var(--card);border:1px solid var(--border);padding:1.75rem;position:relative;margin-bottom:1rem}
 .card::before{content:'';position:absolute;top:4px;left:4px;right:-4px;bottom:-4px;border:1px solid var(--border);z-index:-1}
 .card-title{font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.15em;color:var(--gold);text-transform:uppercase;margin-bottom:1rem}
 
-/* DISCLAIMER */
 .disclaimer{background:var(--card);border:1px solid var(--border);padding:1.5rem;margin:2rem 0;font-size:.95rem;line-height:1.8;color:var(--muted);font-style:italic}
 .disclaimer strong{color:var(--ink);font-style:normal}
 
-/* FORM */
 .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem}
 @media(max-width:480px){.form-grid{grid-template-columns:1fr}}
 label{display:block;font-size:.82rem;color:var(--muted);font-style:italic;margin-bottom:.3rem;margin-top:.9rem}
 label:first-of-type{margin-top:0}
-input[type=text],input[type=date],input[type=time],select{
+input[type=text],input[type=date],input[type=time],select,textarea{
   width:100%;background:transparent;border:none;border-bottom:1px solid var(--border);
   color:var(--ink);font-family:'Cormorant Garamond',serif;font-size:1rem;
-  padding:.4rem 0;outline:none;transition:border-color .2s
+  padding:.4rem 0;outline:none;transition:border-color .2s;resize:none
 }
-input:focus,select:focus{border-color:var(--gold)}
+input:focus,select:focus,textarea:focus{border-color:var(--gold)}
 input[type=date],input[type=time]{color-scheme:light dark}
 select option{background:var(--paper)}
 .opt-note{font-size:.72rem;color:var(--muted);font-style:italic;margin-top:.2rem}
 
-/* BUTTONS */
 .btn-wrap{text-align:center;margin:2rem 0}
 .btn-primary{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:600;
   letter-spacing:.08em;color:var(--paper);background:var(--ink);border:none;
@@ -74,13 +67,12 @@ select option{background:var(--paper)}
   font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:600;
   color:var(--ink);background:var(--card);border:1px solid var(--border);
   padding:.85rem 2.5rem;cursor:pointer;transition:all .2s;width:100%;max-width:320px;margin:0 auto}
-.btn-google:hover{border-color:var(--gold);background:var(--paper)}
+.btn-google:hover{border-color:var(--gold)}
 .btn-secondary{background:transparent;color:var(--muted);border:1px solid var(--border);
   font-family:'Cormorant Garamond',serif;font-size:.95rem;padding:.5rem 1.5rem;
   cursor:pointer;transition:background .2s,color .2s}
 .btn-secondary:hover{background:var(--border);color:var(--ink)}
 
-/* GENDER SELECTOR */
 .gender-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:.5rem}
 .gender-btn{padding:1rem;border:1px solid var(--border);background:transparent;
   cursor:pointer;font-family:'Cormorant Garamond',serif;font-size:1rem;
@@ -88,7 +80,6 @@ select option{background:var(--paper)}
 .gender-btn.selected{border-color:var(--gold);color:var(--gold);background:var(--card)}
 .gender-glyph{font-size:1.5rem;display:block;margin-bottom:.25rem}
 
-/* LOADING */
 .loading-state{text-align:center;padding:3rem}
 .orbit{width:56px;height:56px;border:1px solid var(--border);border-top-color:var(--gold);
   border-radius:50%;animation:spin 1.2s linear infinite;margin:0 auto 1rem}
@@ -96,16 +87,19 @@ select option{background:var(--paper)}
 .loading-text{font-style:italic;color:var(--muted)}
 .loading-sub{font-family:'DM Mono',monospace;font-size:.7rem;color:var(--muted);margin-top:.5rem}
 
-/* ERROR */
 .error-msg{background:var(--card);border:1px solid var(--rust);color:var(--rust);
   padding:1rem 1.25rem;font-size:.95rem;display:none;margin:1rem 0;line-height:1.5}
 
 /* NAV */
 .nav{display:flex;justify-content:space-between;align-items:center;
   padding:.75rem 1.5rem;border-bottom:1px solid var(--border);
-  background:var(--paper);position:sticky;top:0;z-index:10}
+  background:var(--paper);position:sticky;top:0;z-index:10;width:100%}
 .nav-brand{font-family:'DM Mono',monospace;font-size:.75rem;letter-spacing:.15em;color:var(--gold);text-transform:uppercase}
-.nav-user{font-size:.85rem;color:var(--muted);font-style:italic}
+.nav-tabs{display:flex;gap:.5rem}
+.nav-tab{font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.08em;
+  background:transparent;border:1px solid var(--border);color:var(--muted);
+  padding:.3rem .75rem;cursor:pointer;transition:all .2s;text-transform:uppercase}
+.nav-tab.active,.nav-tab:hover{border-color:var(--gold);color:var(--gold)}
 .nav-logout{font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.1em;
   background:transparent;border:1px solid var(--border);color:var(--muted);
   padding:.3rem .75rem;cursor:pointer;transition:all .2s;text-transform:uppercase}
@@ -115,7 +109,6 @@ select option{background:var(--paper)}
 .my-chart{background:var(--card);border:1px solid var(--border);padding:1rem 1.5rem;margin-bottom:1.5rem}
 .my-chart-planets{display:flex;gap:1.5rem;flex-wrap:wrap;margin-top:.5rem}
 .planet-item .planet-label{font-family:'DM Mono',monospace;font-size:.6rem;color:var(--muted);text-transform:uppercase;display:block;margin-bottom:.1rem}
-.planet-item span:last-child{font-size:.9rem}
 
 /* MATCH CARDS */
 .match-card{background:var(--card);border:1px solid var(--border);padding:1.75rem;
@@ -135,49 +128,90 @@ select option{background:var(--paper)}
 .match-aspects{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1rem}
 .aspect-tag{font-family:'DM Mono',monospace;font-size:.65rem;border:1px solid var(--border);padding:.2rem .5rem;color:var(--muted)}
 .aspect-tag.harmony{border-color:var(--gold);color:var(--gold)}
-.match-analysis{font-size:1rem;line-height:1.8;color:var(--ink);font-weight:300;font-style:italic;border-top:1px solid var(--border);padding-top:1rem}
+.match-analysis{font-size:1rem;line-height:1.8;color:var(--ink);font-weight:300;font-style:italic;border-top:1px solid var(--border);padding-top:1rem;margin-bottom:1rem}
 
-.share-note{text-align:center;font-size:.82rem;color:var(--muted);font-style:italic;margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--border);line-height:1.7}
-footer{text-align:center;margin-top:2rem;font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.1em;color:var(--muted);text-transform:uppercase}
+/* LIKE BUTTON */
+.like-btn{display:flex;align-items:center;gap:.5rem;font-family:'DM Mono',monospace;
+  font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;
+  background:transparent;border:1px solid var(--border);color:var(--muted);
+  padding:.5rem 1rem;cursor:pointer;transition:all .2s;margin-top:.75rem}
+.like-btn:hover{border-color:var(--gold);color:var(--gold)}
+.like-btn.liked{border-color:var(--gold);color:var(--gold);background:var(--card)}
+.like-btn.matched{border-color:var(--green);color:var(--green)}
+
+/* MATCHES TAB */
+.match-item{background:var(--card);border:1px solid var(--border);padding:1.25rem;
+  margin-bottom:.75rem;cursor:pointer;transition:border-color .2s;display:flex;
+  align-items:center;justify-content:space-between}
+.match-item:hover{border-color:var(--gold)}
+.match-item-name{font-size:1.1rem;font-weight:600}
+.match-item-meta{font-size:.82rem;color:var(--muted);font-style:italic;margin-top:.15rem}
+.match-item-score{font-size:1.8rem;font-weight:300;color:var(--gold);font-style:italic}
+
+/* CHAT */
+.chat-header{display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem;padding-bottom:1rem;border-bottom:1px solid var(--border)}
+.chat-back{font-family:'DM Mono',monospace;font-size:.65rem;background:transparent;
+  border:1px solid var(--border);color:var(--muted);padding:.3rem .75rem;cursor:pointer;
+  transition:all .2s;text-transform:uppercase}
+.chat-back:hover{border-color:var(--gold);color:var(--gold)}
+.chat-name{font-size:1.3rem;font-weight:600}
+.chat-messages{min-height:200px;max-height:400px;overflow-y:auto;
+  border:1px solid var(--border);padding:1rem;margin-bottom:1rem;background:var(--paper)}
+.msg{margin-bottom:.75rem;max-width:85%}
+.msg.mine{margin-left:auto;text-align:right}
+.msg-text{font-size:.95rem;line-height:1.6;padding:.5rem .75rem;
+  display:inline-block;border:1px solid var(--border);background:var(--card)}
+.msg.mine .msg-text{border-color:var(--gold);background:var(--card)}
+.msg-time{font-family:'DM Mono',monospace;font-size:.6rem;color:var(--muted);margin-top:.2rem}
+.chat-input-wrap{display:flex;gap:.75rem;align-items:flex-end}
+.chat-input{flex:1;border:none;border-bottom:1px solid var(--border);padding:.5rem 0;
+  font-family:'Cormorant Garamond',serif;font-size:1rem;background:transparent;
+  color:var(--ink);outline:none;resize:none}
+.chat-input:focus{border-color:var(--gold)}
+.chat-send{font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.08em;
+  background:var(--ink);color:var(--paper);border:none;padding:.6rem 1rem;
+  cursor:pointer;transition:background .2s;text-transform:uppercase;white-space:nowrap}
+.chat-send:hover{background:var(--gold)}
+.char-count{font-family:'DM Mono',monospace;font-size:.65rem;color:var(--muted);text-align:right;margin-top:.25rem}
+.char-count.over{color:var(--rust)}
+
+.empty-state{text-align:center;padding:3rem;color:var(--muted);font-style:italic}
+
+.share-note{text-align:center;font-size:.82rem;color:var(--muted);font-style:italic;
+  margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--border);line-height:1.7}
+footer{text-align:center;margin-top:2rem;font-family:'DM Mono',monospace;
+  font-size:.62rem;letter-spacing:.1em;color:var(--muted);text-transform:uppercase}
 </style>
 </head>
 <body>
 
 <div class="cosmos" id="cosmos"></div>
 
-<!-- ══════════════════════════════════════
-     SCREEN 1: BIENVENIDA + DISCLAIMER
-════════════════════════════════════════ -->
+<!-- SCREEN 1: BIENVENIDA -->
 <div class="screen active" id="screen-welcome">
   <div class="wrap">
     <div class="title-mark">✦ Astro Matches ✦</div>
     <h1>Encontrá tu<br><em>afinidad astral</em></h1>
     <div class="subtitle">Compatibilidad basada en sinastría astrológica real</div>
-
     <div class="disclaimer">
-      <strong>Aviso importante:</strong> Los análisis de compatibilidad presentados en esta aplicación
-      están basados en principios de astrología occidental y sinastría. Son generados con fines
-      de entretenimiento y autoconocimiento, y <strong>no constituyen asesoramiento profesional</strong>
-      de ningún tipo. Para consultas astrológicas serias, te recomendamos acudir a un astrólogo
-      certificado en <strong>astro.com</strong> o plataformas especializadas. La astrología es una
-      herramienta simbólica de reflexión, no una ciencia predictiva.
+      <strong>Aviso importante:</strong> Los análisis de esta aplicación están basados en astrología
+      occidental y sinastría, generados con fines de entretenimiento y autoconocimiento.
+      <strong>No constituyen asesoramiento profesional.</strong> Para consultas astrológicas serias,
+      recomendamos <strong>astro.com</strong>. La astrología es una herramienta simbólica de
+      reflexión, no una ciencia predictiva.
     </div>
-
     <div class="btn-wrap">
       <button class="btn-primary" onclick="showScreen('screen-login')">Entrar ✦</button>
     </div>
   </div>
 </div>
 
-<!-- ══════════════════════════════════════
-     SCREEN 2: LOGIN
-════════════════════════════════════════ -->
+<!-- SCREEN 2: LOGIN -->
 <div class="screen" id="screen-login">
   <div class="wrap" style="max-width:420px">
     <div class="title-mark">✦ Acceder ✦</div>
     <h1 style="font-size:2rem">Ingresá con<br><em>Google</em></h1>
     <div class="subtitle" style="margin-bottom:2rem">Sin contraseñas, en un click</div>
-
     <div class="btn-wrap">
       <button class="btn-google" onclick="loginWithGoogle()">
         <svg width="20" height="20" viewBox="0 0 48 48">
@@ -189,43 +223,33 @@ footer{text-align:center;margin-top:2rem;font-family:'DM Mono',monospace;font-si
         Continuar con Google
       </button>
     </div>
-
-    <div style="text-align:center;margin-top:1rem">
+    <div style="text-align:center">
       <button class="btn-secondary" onclick="showScreen('screen-welcome')">← Volver</button>
     </div>
-
     <div class="error-msg" id="login-error"></div>
   </div>
 </div>
 
-<!-- ══════════════════════════════════════
-     SCREEN 3: ONBOARDING
-════════════════════════════════════════ -->
+<!-- SCREEN 3: ONBOARDING -->
 <div class="screen" id="screen-onboarding">
   <div class="wrap" style="max-width:560px">
     <div class="title-mark">✦ Tu perfil astral ✦</div>
     <h1 style="font-size:2rem;margin-bottom:.5rem">Completá tu<br><em>carta natal</em></h1>
     <div class="subtitle" style="margin-bottom:2rem">Solo necesitamos tus datos de nacimiento</div>
-
     <div class="card">
       <div class="card-title">✦ Datos personales</div>
-
       <label>¿Cómo querés que te llamen?</label>
       <input type="text" id="ob-nombre" placeholder="Tu nombre o alias">
-
       <label>Género</label>
       <div class="gender-grid">
         <button class="gender-btn" id="btn-mujer" onclick="selectGenero('mujer')">
-          <span class="gender-glyph">♀</span>
-          Mujer
+          <span class="gender-glyph">♀</span>Mujer
         </button>
         <button class="gender-btn" id="btn-hombre" onclick="selectGenero('hombre')">
-          <span class="gender-glyph">♂</span>
-          Hombre
+          <span class="gender-glyph">♂</span>Hombre
         </button>
       </div>
     </div>
-
     <div class="card">
       <div class="card-title">✦ Datos de nacimiento</div>
       <div class="form-grid">
@@ -244,77 +268,85 @@ footer{text-align:center;margin-top:2rem;font-family:'DM Mono',monospace;font-si
         </div>
       </div>
     </div>
-
     <div class="error-msg" id="ob-error"></div>
-
     <div class="btn-wrap">
       <button class="btn-primary" id="ob-btn" onclick="guardarPerfil()">Calcular mi carta natal ✦</button>
     </div>
   </div>
 </div>
 
-<!-- ══════════════════════════════════════
-     SCREEN 4: FEED DE MATCHES
-════════════════════════════════════════ -->
-<div class="screen" id="screen-feed" style="justify-content:flex-start;padding-top:0">
-
-  <nav class="nav" style="width:100%">
+<!-- SCREEN 4: FEED + MATCHES + CHAT -->
+<div class="screen top" id="screen-feed">
+  <nav class="nav">
     <div class="nav-brand">✦ Astro Matches</div>
-    <div style="display:flex;align-items:center;gap:1rem">
-      <div class="nav-user" id="nav-nombre"></div>
+    <div style="display:flex;align-items:center;gap:.5rem">
+      <button class="nav-tab active" id="tab-feed" onclick="switchTab('feed')">Matches</button>
+      <button class="nav-tab" id="tab-chats" onclick="switchTab('chats')">Chats</button>
       <button class="nav-logout" onclick="logout()">Salir</button>
     </div>
   </nav>
 
   <div class="wrap" style="padding-top:2rem">
 
-    <div id="feed-loading" class="loading-state">
-      <div class="orbit"></div>
-      <div class="loading-text">Consultando los astros...</div>
-      <div class="loading-sub">calculando sinastría con Swiss Ephemeris</div>
+    <!-- TAB: FEED -->
+    <div id="tab-content-feed">
+      <div id="feed-loading" class="loading-state">
+        <div class="orbit"></div>
+        <div class="loading-text">Consultando los astros...</div>
+        <div class="loading-sub">calculando sinastría con Swiss Ephemeris</div>
+      </div>
+      <div id="feed-content" style="display:none">
+        <div class="my-chart" id="my-chart-box">
+          <div class="card-title">✦ Tu carta natal</div>
+          <div class="my-chart-planets" id="my-chart-planets"></div>
+        </div>
+        <div style="margin-bottom:1.5rem">
+          <div class="title-mark">✦ Tus mejores matches ✦</div>
+        </div>
+        <div id="match-cards"></div>
+        <div class="share-note">
+          Análisis generado por IA · Cálculos con Swiss Ephemeris<br>
+          El mismo motor que Co-Star y Astro.com · Prototype v0.3
+        </div>
+      </div>
+      <div class="error-msg" id="feed-error"></div>
     </div>
 
-    <div id="feed-content" style="display:none">
-
-      <div class="my-chart" id="my-chart-box">
-        <div class="card-title">✦ Tu carta natal</div>
-        <div class="my-chart-planets" id="my-chart-planets"></div>
+    <!-- TAB: CHATS -->
+    <div id="tab-content-chats" style="display:none">
+      <div id="chats-loading" class="loading-state" style="display:none">
+        <div class="orbit"></div>
+        <div class="loading-text">Cargando chats...</div>
       </div>
-
-      <div style="margin-bottom:1.5rem">
-        <div class="title-mark">✦ Tus mejores matches ✦</div>
+      <div id="chats-list"></div>
+      <div id="chat-window" style="display:none">
+        <div class="chat-header">
+          <button class="chat-back" onclick="volverAChats()">← Volver</button>
+          <div class="chat-name" id="chat-with-name"></div>
+        </div>
+        <div class="chat-messages" id="chat-messages"></div>
+        <div class="chat-input-wrap">
+          <textarea class="chat-input" id="chat-input" rows="2" maxlength="140"
+            placeholder="Escribí un mensaje..." oninput="updateCharCount()"></textarea>
+          <button class="chat-send" onclick="enviarMensaje()">Enviar</button>
+        </div>
+        <div class="char-count" id="char-count">0 / 140</div>
       </div>
-
-      <div id="match-cards"></div>
-
-      <div class="share-note">
-        Análisis generado por IA como exploración simbólica, no como verdad absoluta.<br>
-        Cálculos con Swiss Ephemeris · El mismo motor que Co-Star y Astro.com
-      </div>
-
-      <div class="btn-wrap">
-        <button class="btn-secondary" onclick="recargarMatches()">Actualizar matches</button>
-      </div>
-
     </div>
 
-    <div class="error-msg" id="feed-error"></div>
-
-    <footer>Astro Matches · Prototype v0.3 · Swiss Ephemeris + Claude AI</footer>
+    <footer>Astro Matches · Prototype v0.3</footer>
   </div>
 </div>
 
 <script>
-// ── CONFIG — reemplazá con tus datos ──────────────────────────────────────
-const BACKEND_URL   = 'https://web-production-71dd2.up.railway.app';
-const SUPABASE_URL  = 'https://ekfngseqrzimgkjrxasa.supabase.co';
-const SUPABASE_KEY  = 'sb_publishable_pMjOGZOY1PTqwvRLfDd_JQ_TVfMPJPx'; // sb_publishable_...
+const BACKEND_URL  = 'https://web-production-71dd2.up.railway.app';
+const SUPABASE_URL = 'https://ekfngseqrzimgkjrxasa.supabase.co';
+const SUPABASE_KEY = 'sb_publishable_pMjOGZOY1PTqwvRLfDd_JQ_TVfMPJPx';
 
-// ── Init Supabase ─────────────────────────────────────────────────────────
 const { createClient } = supabase;
 const sb = createClient(SUPABASE_URL, SUPABASE_KEY);
 
-// ── Stars ─────────────────────────────────────────────────────────────────
+// Stars
 const cosmos = document.getElementById('cosmos');
 for (let i = 0; i < 65; i++) {
   const s = document.createElement('div'); s.className = 'star';
@@ -323,15 +355,26 @@ for (let i = 0; i < 65; i++) {
   cosmos.appendChild(s);
 }
 
-// ── Estado global ─────────────────────────────────────────────────────────
 let currentUser = null;
 let userProfile = null;
 let selectedGenero = null;
+let currentMatchId = null;
+let currentMatchName = null;
+let likedUsers = new Set();
+let chatPollInterval = null;
 
 // ── Navegación ────────────────────────────────────────────────────────────
 function showScreen(id) {
   document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
   document.getElementById(id).classList.add('active');
+}
+
+function switchTab(tab) {
+  document.getElementById('tab-content-feed').style.display  = tab==='feed'  ? 'block' : 'none';
+  document.getElementById('tab-content-chats').style.display = tab==='chats' ? 'block' : 'none';
+  document.getElementById('tab-feed').classList.toggle('active',  tab==='feed');
+  document.getElementById('tab-chats').classList.toggle('active', tab==='chats');
+  if (tab === 'chats') cargarChats();
 }
 
 // ── Auth ──────────────────────────────────────────────────────────────────
@@ -345,21 +388,15 @@ async function loginWithGoogle() {
 
 async function logout() {
   await sb.auth.signOut();
-  currentUser = null;
-  userProfile = null;
+  currentUser = null; userProfile = null;
   showScreen('screen-welcome');
 }
 
-// Al cargar la página, verificar si hay sesión activa
 window.addEventListener('DOMContentLoaded', async () => {
   const { data: { session } } = await sb.auth.getSession();
-  if (session) {
-    currentUser = session.user;
-    await checkProfile();
-  }
+  if (session) { currentUser = session.user; await checkProfile(); }
 });
 
-// Escuchar cambios de auth (después del redirect de Google)
 sb.auth.onAuthStateChange(async (event, session) => {
   if (event === 'SIGNED_IN' && session) {
     currentUser = session.user;
@@ -367,28 +404,17 @@ sb.auth.onAuthStateChange(async (event, session) => {
   }
 });
 
-// Verificar si el usuario ya tiene perfil en la base
 async function checkProfile() {
-  const { data, error } = await sb
-    .from('profiles')
-    .select('*')
-    .eq('id', currentUser.id)
-    .single();
-
-  if (data) {
-    userProfile = data;
-    mostrarFeed();
-  } else {
-    // Usuario nuevo — mostrar onboarding
-    showScreen('screen-onboarding');
-  }
+  const { data } = await sb.from('profiles').select('*').eq('id', currentUser.id).single();
+  if (data) { userProfile = data; mostrarFeed(); }
+  else showScreen('screen-onboarding');
 }
 
 // ── Onboarding ────────────────────────────────────────────────────────────
 function selectGenero(g) {
   selectedGenero = g;
-  document.getElementById('btn-mujer').classList.toggle('selected', g === 'mujer');
-  document.getElementById('btn-hombre').classList.toggle('selected', g === 'hombre');
+  document.getElementById('btn-mujer').classList.toggle('selected',  g==='mujer');
+  document.getElementById('btn-hombre').classList.toggle('selected', g==='hombre');
 }
 
 async function guardarPerfil() {
@@ -397,102 +423,90 @@ async function guardarPerfil() {
   const hora   = document.getElementById('ob-hora').value;
   const ciudad = document.getElementById('ob-ciudad').value.trim();
 
-  if (!nombre) return showError('ob-error', 'Ingresá tu nombre.');
+  if (!nombre)        return showError('ob-error', 'Ingresá tu nombre.');
   if (!selectedGenero) return showError('ob-error', 'Seleccioná tu género.');
-  if (!fecha) return showError('ob-error', 'Ingresá tu fecha de nacimiento.');
+  if (!fecha)         return showError('ob-error', 'Ingresá tu fecha de nacimiento.');
 
   hideError('ob-error');
-  document.getElementById('ob-btn').disabled = true;
-  document.getElementById('ob-btn').textContent = 'Calculando...';
+  const btn = document.getElementById('ob-btn');
+  btn.disabled = true; btn.textContent = 'Calculando...';
 
   let horaDecimal = 12.0;
-  if (hora) {
-    const [h, m] = hora.split(':').map(Number);
-    horaDecimal = h + m / 60;
-  }
+  if (hora) { const [h,m] = hora.split(':').map(Number); horaDecimal = h + m/60; }
 
   try {
     const resp = await fetch(`${BACKEND_URL}/registro`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      method:'POST', headers:{'Content-Type':'application/json'},
       body: JSON.stringify({
-        user_id: currentUser.id,
-        nombre,
-        genero:  selectedGenero,
-        fecha,
-        hora:    horaDecimal,
-        ciudad:  ciudad || 'Buenos Aires Argentina'
+        user_id: currentUser.id, nombre, genero: selectedGenero,
+        fecha, hora: horaDecimal, ciudad: ciudad || 'Buenos Aires Argentina'
       })
     });
-
     const data = await resp.json();
     if (data.error) throw new Error(data.error);
-
     userProfile = data.perfil;
     mostrarFeed();
-
   } catch(err) {
     showError('ob-error', `Error: ${err.message}`);
-    document.getElementById('ob-btn').disabled = false;
-    document.getElementById('ob-btn').textContent = 'Calcular mi carta natal ✦';
+    btn.disabled = false; btn.textContent = 'Calcular mi carta natal ✦';
   }
 }
 
 // ── Feed ──────────────────────────────────────────────────────────────────
 async function mostrarFeed() {
   showScreen('screen-feed');
-  document.getElementById('nav-nombre').textContent = userProfile.nombre;
   document.getElementById('feed-loading').style.display = 'block';
   document.getElementById('feed-content').style.display = 'none';
   hideError('feed-error');
-  await cargarMatches();
-}
 
-async function recargarMatches() {
-  document.getElementById('feed-loading').style.display = 'block';
-  document.getElementById('feed-content').style.display = 'none';
+  // Cargar likes previos del usuario
+  const { data: likesData } = await sb.from('likes')
+    .select('hacia_id').eq('desde_id', currentUser.id);
+  if (likesData) likesData.forEach(l => likedUsers.add(l.hacia_id));
+
   await cargarMatches();
 }
 
 async function cargarMatches() {
   try {
-    let horaDecimal = userProfile.hora_nac || 12.0;
-
     const resp = await fetch(`${BACKEND_URL}/matches`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      method:'POST', headers:{'Content-Type':'application/json'},
       body: JSON.stringify({
         fecha:  userProfile.fecha_nac,
-        hora:   horaDecimal,
+        hora:   userProfile.hora_nac || 12.0,
         ciudad: userProfile.ciudad_nac || 'Buenos Aires Argentina',
         nombre: userProfile.nombre,
         genero: userProfile.genero
       })
     });
-
     const data = await resp.json();
     if (data.error) throw new Error(data.error);
 
-    // Mostrar carta natal propia
+    // Carta natal propia
     const planetas = document.getElementById('my-chart-planets');
-    planetas.innerHTML = [
-      ['Sol',  data.mi_sol],
-      ['Luna', data.mi_luna],
-      ['Asc',  data.mi_asc],
-    ].filter(([,v]) => v).map(([l,v]) =>
-      `<div class="planet-item"><span class="planet-label">${l}</span><span>${v}</span></div>`
-    ).join('');
+    planetas.innerHTML = [['Sol',data.mi_sol],['Luna',data.mi_luna],['Asc',data.mi_asc]]
+      .filter(([,v])=>v)
+      .map(([l,v])=>`<div class="planet-item"><span class="planet-label">${l}</span><span>${v}</span></div>`)
+      .join('');
 
-    // Renderizar match cards
+    // Match cards
     const cards = document.getElementById('match-cards');
     cards.innerHTML = '';
     const rankLabel = ['#1 Match','#2 Match','#3 Match'];
 
     data.top3.forEach((u, i) => {
+      const userId = u.user_id || null;
+      const yaLiked = userId && likedUsers.has(userId);
       const aspectsHtml = u.aspects.map(a =>
         `<span class="aspect-tag ${['trino','sextil','conjunción'].includes(a.aspecto)?'harmony':''}">${a.planeta}: ${a.aspecto}</span>`
       ).join('');
-      const analisis = (u.analisis || '').replace(/^#+\s.+\n/,'').trim();
+      const analisis = (u.analisis||'').replace(/^#+\s.+\n/,'').trim();
+
+      const likeBtn = userId ? `
+        <button class="like-btn ${yaLiked?'liked':''}" id="like-btn-${userId}"
+          onclick="darLike('${userId}', ${u.score}, this)">
+          ${yaLiked ? '✦ Te interesa' : '✦ Me interesa'}
+        </button>` : '';
 
       cards.innerHTML += `
         <div class="match-card">
@@ -510,6 +524,7 @@ async function cargarMatches() {
           </div>
           ${aspectsHtml?`<div class="match-aspects">${aspectsHtml}</div>`:''}
           <div class="match-analysis">${analisis}</div>
+          ${likeBtn}
         </div>`;
     });
 
@@ -518,19 +533,140 @@ async function cargarMatches() {
 
   } catch(err) {
     document.getElementById('feed-loading').style.display = 'none';
-    showError('feed-error', `No se pudo cargar los matches: ${err.message}`);
+    showError('feed-error', `No se pudo cargar: ${err.message}`);
   }
 }
 
+// ── Likes ─────────────────────────────────────────────────────────────────
+async function darLike(haciaId, score, btn) {
+  if (likedUsers.has(haciaId)) return;
+  btn.disabled = true;
+  try {
+    const resp = await fetch(`${BACKEND_URL}/like`, {
+      method:'POST', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({ desde_id: currentUser.id, hacia_id: haciaId, score })
+    });
+    const data = await resp.json();
+    likedUsers.add(haciaId);
+    btn.classList.add('liked');
+
+    if (data.match_mutuo) {
+      btn.classList.add('matched');
+      btn.textContent = '✦ ¡Match! Ir al chat →';
+      btn.onclick = () => { switchTab('chats'); };
+    } else {
+      btn.textContent = '✦ Te interesa';
+    }
+  } catch(err) {
+    btn.disabled = false;
+  }
+}
+
+// ── Chats ─────────────────────────────────────────────────────────────────
+async function cargarChats() {
+  document.getElementById('chats-loading').style.display = 'block';
+  document.getElementById('chats-list').innerHTML = '';
+  document.getElementById('chat-window').style.display = 'none';
+
+  try {
+    const resp = await fetch(`${BACKEND_URL}/mis-matches`, {
+      method:'POST', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({ user_id: currentUser.id })
+    });
+    const data = await resp.json();
+    document.getElementById('chats-loading').style.display = 'none';
+
+    if (!data.matches || data.matches.length === 0) {
+      document.getElementById('chats-list').innerHTML =
+        '<div class="empty-state">Todavía no tenés matches mutuos.<br>Explorá los astros y dales like a tus compatibles.</div>';
+      return;
+    }
+
+    data.matches.forEach(m => {
+      document.getElementById('chats-list').innerHTML += `
+        <div class="match-item" onclick="abrirChat('${m.match_id}','${m.nombre}')">
+          <div>
+            <div class="match-item-name">${m.nombre}</div>
+            <div class="match-item-meta">${m.sol}</div>
+          </div>
+          <div class="match-item-score">${m.score}%</div>
+        </div>`;
+    });
+  } catch(err) {
+    document.getElementById('chats-loading').style.display = 'none';
+  }
+}
+
+async function abrirChat(matchId, nombre) {
+  currentMatchId = matchId;
+  currentMatchName = nombre;
+  document.getElementById('chats-list').style.display = 'none';
+  document.getElementById('chat-window').style.display = 'block';
+  document.getElementById('chat-with-name').textContent = nombre;
+  await cargarMensajes();
+  if (chatPollInterval) clearInterval(chatPollInterval);
+  chatPollInterval = setInterval(cargarMensajes, 5000);
+}
+
+function volverAChats() {
+  if (chatPollInterval) { clearInterval(chatPollInterval); chatPollInterval = null; }
+  document.getElementById('chat-window').style.display = 'none';
+  document.getElementById('chats-list').style.display = 'block';
+}
+
+async function cargarMensajes() {
+  try {
+    const resp = await fetch(`${BACKEND_URL}/mensajes`, {
+      method:'POST', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({ action:'get', match_id: currentMatchId })
+    });
+    const data = await resp.json();
+    const container = document.getElementById('chat-messages');
+    const wasAtBottom = container.scrollHeight - container.clientHeight <= container.scrollTop + 10;
+
+    container.innerHTML = (data.mensajes||[]).map(m => {
+      const mine = m.autor_id === currentUser.id;
+      const time = new Date(m.created_at).toLocaleTimeString('es-AR',{hour:'2-digit',minute:'2-digit'});
+      return `<div class="msg ${mine?'mine':''}">
+        <div class="msg-text">${m.texto}</div>
+        <div class="msg-time">${time}</div>
+      </div>`;
+    }).join('') || '<div class="empty-state" style="padding:1rem">Iniciá la conversación ✦</div>';
+
+    if (wasAtBottom) container.scrollTop = container.scrollHeight;
+  } catch(err) {}
+}
+
+async function enviarMensaje() {
+  const input = document.getElementById('chat-input');
+  const texto = input.value.trim();
+  if (!texto || texto.length > 140) return;
+  input.value = ''; updateCharCount();
+  try {
+    await fetch(`${BACKEND_URL}/mensajes`, {
+      method:'POST', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({ action:'send', match_id: currentMatchId, autor_id: currentUser.id, texto })
+    });
+    await cargarMensajes();
+  } catch(err) {}
+}
+
+function updateCharCount() {
+  const len = document.getElementById('chat-input').value.length;
+  const el = document.getElementById('char-count');
+  el.textContent = `${len} / 140`;
+  el.classList.toggle('over', len > 140);
+}
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Enter' && !e.shiftKey && document.getElementById('chat-input') === document.activeElement) {
+    e.preventDefault(); enviarMensaje();
+  }
+});
+
 // ── Helpers ───────────────────────────────────────────────────────────────
-function showError(id, msg) {
-  const el = document.getElementById(id);
-  if (el) { el.innerHTML = msg; el.style.display = 'block'; }
-}
-function hideError(id) {
-  const el = document.getElementById(id);
-  if (el) el.style.display = 'none';
-}
+function showError(id, msg) { const el=document.getElementById(id); if(el){el.innerHTML=msg;el.style.display='block';} }
+function hideError(id) { const el=document.getElementById(id); if(el) el.style.display='none'; }
 </script>
 </body>
 </html>
