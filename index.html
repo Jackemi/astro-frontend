@@ -551,9 +551,10 @@ async function cargarMatches() {
       ).join('');
       const analisis = (u.analisis||'').replace(/^#+\s.+\n/,'').trim();
 
+      const likeOnclick = yaLiked ? '' : `darLike('${userId}', ${u.score}, this)`;
       const likeBtn = userId
         ? `<button class="like-btn ${yaLiked?'liked':''}" id="like-btn-${userId}"
-            onclick="${yaLiked?'':``darLike('${userId}', ${u.score}, this)``}">
+            onclick="${likeOnclick}">
             <span class="like-btn-icon">${yaLiked?'✦':'♡'}</span>
             ${yaLiked ? 'Ya le diste like' : 'Me interesa'}
           </button>`
