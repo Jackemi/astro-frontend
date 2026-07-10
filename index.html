@@ -658,11 +658,12 @@ async function cargarChats() {
 
 async function abrirChat(matchId, nombre) {
   currentMatchId = matchId;
+  if (chatPollInterval) { clearInterval(chatPollInterval); chatPollInterval = null; }
+  document.getElementById('chat-messages').innerHTML = '';
   document.getElementById('chats-list').style.display = 'none';
   document.getElementById('chat-window').style.display = 'block';
   document.getElementById('chat-with-name').textContent = nombre;
   await cargarMensajes();
-  if (chatPollInterval) clearInterval(chatPollInterval);
   chatPollInterval = setInterval(cargarMensajes, 5000);
 }
 
