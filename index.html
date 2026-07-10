@@ -669,8 +669,10 @@ async function abrirChat(matchId, nombre) {
 
 function volverAChats() {
   if (chatPollInterval) { clearInterval(chatPollInterval); chatPollInterval = null; }
+  currentMatchId = null;
   document.getElementById('chat-window').style.display = 'none';
   document.getElementById('chats-list').style.display = 'block';
+  cargarChats();
 }
 
 async function cargarMensajes() {
