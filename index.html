@@ -21,28 +21,22 @@ body{font-family:'Cormorant Garamond',serif;background:var(--paper);color:var(--
 .cosmos{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;overflow:hidden}
 .star{position:absolute;border-radius:50%;background:var(--gold);opacity:0;animation:twinkle var(--d,3s) ease-in-out infinite var(--delay,0s)}
 @keyframes twinkle{0%,100%{opacity:0}50%{opacity:var(--op,.4)}}
-
 .screen{display:none;position:relative;z-index:1;min-height:100vh;padding:2rem 1rem 4rem}
 .screen.active{display:flex;flex-direction:column;align-items:center;justify-content:center}
 .screen.top{justify-content:flex-start;padding-top:0}
 .wrap{width:100%;max-width:680px;margin:0 auto}
-
 .title-mark{font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.2em;color:var(--gold);text-transform:uppercase;margin-bottom:.75rem;text-align:center}
 h1{font-size:3rem;font-weight:300;line-height:1.1;letter-spacing:-.01em;text-align:center}
 h1 em{font-style:italic;color:var(--gold)}
 .subtitle{font-size:1rem;color:var(--muted);font-style:italic;margin-top:.5rem;text-align:center}
-
 .divider{display:flex;align-items:center;gap:1rem;margin:1.5rem 0;color:var(--border)}
 .divider::before,.divider::after{content:'';flex:1;height:1px;background:var(--border)}
-.divider span{font-size:.9rem;color:var(--muted);font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.1em}
-
+.divider span{font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.1em;color:var(--muted)}
 .card{background:var(--card);border:1px solid var(--border);padding:1.75rem;position:relative;margin-bottom:1rem}
 .card::before{content:'';position:absolute;top:4px;left:4px;right:-4px;bottom:-4px;border:1px solid var(--border);z-index:-1}
 .card-title{font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.15em;color:var(--gold);text-transform:uppercase;margin-bottom:1rem}
-
 .disclaimer{background:var(--card);border:1px solid var(--border);padding:1.5rem;margin:2rem 0;font-size:.95rem;line-height:1.8;color:var(--muted);font-style:italic}
 .disclaimer strong{color:var(--ink);font-style:normal}
-
 .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem}
 @media(max-width:480px){.form-grid{grid-template-columns:1fr}}
 label{display:block;font-size:.82rem;color:var(--muted);font-style:italic;margin-bottom:.3rem;margin-top:.9rem}
@@ -50,17 +44,15 @@ label:first-of-type{margin-top:0}
 input[type=text],input[type=email],input[type=date],input[type=time],select,textarea{
   width:100%;background:transparent;border:none;border-bottom:1px solid var(--border);
   color:var(--ink);font-family:'Cormorant Garamond',serif;font-size:1rem;
-  padding:.4rem 0;outline:none;transition:border-color .2s;resize:none
-}
+  padding:.4rem 0;outline:none;transition:border-color .2s;resize:none}
 input:focus,select:focus,textarea:focus{border-color:var(--gold)}
 input[type=date],input[type=time]{color-scheme:light dark}
-select option{background:var(--paper)}
 .opt-note{font-size:.72rem;color:var(--muted);font-style:italic;margin-top:.2rem}
-
 .btn-wrap{text-align:center;margin:1.5rem 0}
 .btn-primary{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:600;
   letter-spacing:.08em;color:var(--paper);background:var(--ink);border:none;
-  padding:.85rem 2.5rem;cursor:pointer;transition:background .2s,transform .1s;width:100%;max-width:340px;display:block;margin:0 auto}
+  padding:.85rem 2.5rem;cursor:pointer;transition:background .2s,transform .1s;
+  width:100%;max-width:340px;display:block;margin:0 auto}
 .btn-primary:hover{background:var(--gold)}.btn-primary:active{transform:scale(.98)}
 .btn-primary:disabled{opacity:.5;cursor:not-allowed}
 .btn-google{display:flex;align-items:center;justify-content:center;gap:.75rem;
@@ -72,34 +64,26 @@ select option{background:var(--paper)}
   font-family:'Cormorant Garamond',serif;font-size:.95rem;padding:.5rem 1.5rem;
   cursor:pointer;transition:background .2s,color .2s}
 .btn-secondary:hover{background:var(--border);color:var(--ink)}
-.link-btn{background:none;border:none;color:var(--gold);font-family:'Cormorant Garamond',serif;
-  font-size:.9rem;cursor:pointer;text-decoration:underline;text-underline-offset:3px;font-style:italic}
-
 .gender-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:.5rem}
 .gender-btn{padding:1rem;border:1px solid var(--border);background:transparent;
   cursor:pointer;font-family:'Cormorant Garamond',serif;font-size:1rem;
   color:var(--muted);transition:all .2s;text-align:center}
 .gender-btn.selected{border-color:var(--gold);color:var(--gold);background:var(--card)}
 .gender-glyph{font-size:1.5rem;display:block;margin-bottom:.25rem}
-
 .loading-state{text-align:center;padding:3rem}
 .orbit{width:56px;height:56px;border:1px solid var(--border);border-top-color:var(--gold);
   border-radius:50%;animation:spin 1.2s linear infinite;margin:0 auto 1rem}
 @keyframes spin{to{transform:rotate(360deg)}}
 .loading-text{font-style:italic;color:var(--muted)}
 .loading-sub{font-family:'DM Mono',monospace;font-size:.7rem;color:var(--muted);margin-top:.5rem}
-
 .error-msg{background:var(--card);border:1px solid var(--rust);color:var(--rust);
   padding:1rem 1.25rem;font-size:.95rem;display:none;margin:1rem 0;line-height:1.5}
 .success-msg{background:var(--card);border:1px solid var(--green);color:var(--green);
-  padding:1rem 1.25rem;font-size:.95rem;display:none;margin:1rem 0;line-height:1.5;font-style:italic}
-
-/* NAV */
+  padding:1rem 1.25rem;font-size:.95rem;display:none;margin:1rem 0;font-style:italic}
 .nav{display:flex;justify-content:space-between;align-items:center;
   padding:.75rem 1.5rem;border-bottom:1px solid var(--border);
   background:var(--paper);position:sticky;top:0;z-index:10;width:100%}
 .nav-brand{font-family:'DM Mono',monospace;font-size:.75rem;letter-spacing:.15em;color:var(--gold);text-transform:uppercase}
-.nav-tabs{display:flex;gap:.5rem}
 .nav-tab{font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.08em;
   background:transparent;border:1px solid var(--border);color:var(--muted);
   padding:.3rem .75rem;cursor:pointer;transition:all .2s;text-transform:uppercase}
@@ -108,13 +92,9 @@ select option{background:var(--paper)}
   background:transparent;border:1px solid var(--border);color:var(--muted);
   padding:.3rem .75rem;cursor:pointer;transition:all .2s;text-transform:uppercase}
 .nav-logout:hover{border-color:var(--rust);color:var(--rust)}
-
-/* MY CHART */
 .my-chart{background:var(--card);border:1px solid var(--border);padding:1rem 1.5rem;margin-bottom:1.5rem}
 .my-chart-planets{display:flex;gap:1.5rem;flex-wrap:wrap;margin-top:.5rem}
 .planet-item .planet-label{font-family:'DM Mono',monospace;font-size:.6rem;color:var(--muted);text-transform:uppercase;display:block;margin-bottom:.1rem}
-
-/* MATCH CARDS */
 .match-card{background:var(--card);border:1px solid var(--border);padding:1.75rem;
   margin-bottom:1.25rem;position:relative;animation:fadeUp .5s ease both}
 .match-card:nth-child(1){animation-delay:.1s}.match-card:nth-child(2){animation-delay:.25s}.match-card:nth-child(3){animation-delay:.4s}
@@ -133,23 +113,14 @@ select option{background:var(--paper)}
 .aspect-tag{font-family:'DM Mono',monospace;font-size:.65rem;border:1px solid var(--border);padding:.2rem .5rem;color:var(--muted)}
 .aspect-tag.harmony{border-color:var(--gold);color:var(--gold)}
 .match-analysis{font-size:1rem;line-height:1.8;color:var(--ink);font-weight:300;font-style:italic;border-top:1px solid var(--border);padding-top:1rem;margin-bottom:1.25rem}
-
-/* LIKE BUTTON — más visible */
-.like-btn{
-  display:flex;align-items:center;justify-content:center;gap:.6rem;
-  width:100%;padding:.85rem;
-  font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:600;letter-spacing:.05em;
-  background:var(--ink);color:var(--paper);border:none;
-  cursor:pointer;transition:all .2s;
-}
+.like-btn{display:flex;align-items:center;justify-content:center;gap:.6rem;
+  width:100%;padding:.85rem;font-family:'Cormorant Garamond',serif;font-size:1rem;
+  font-weight:600;letter-spacing:.05em;background:var(--ink);color:var(--paper);
+  border:none;cursor:pointer;transition:all .2s}
 .like-btn:hover{background:var(--gold)}
-.like-btn.liked{background:transparent;color:var(--gold);border:1px solid var(--gold)}
-.like-btn.liked:hover{background:transparent;cursor:default}
+.like-btn.liked{background:transparent;color:var(--gold);border:1px solid var(--gold);cursor:default}
 .like-btn.matched{background:var(--green);color:var(--paper)}
-.like-btn.matched:hover{background:var(--green);opacity:.9}
 .like-btn-icon{font-size:1.1rem}
-
-/* MATCHES TAB */
 .match-item{background:var(--card);border:1px solid var(--border);padding:1.25rem;
   margin-bottom:.75rem;cursor:pointer;transition:border-color .2s;display:flex;
   align-items:center;justify-content:space-between}
@@ -157,8 +128,6 @@ select option{background:var(--paper)}
 .match-item-name{font-size:1.1rem;font-weight:600}
 .match-item-meta{font-size:.82rem;color:var(--muted);font-style:italic;margin-top:.15rem}
 .match-item-score{font-size:1.8rem;font-weight:300;color:var(--gold);font-style:italic}
-
-/* CHAT */
 .chat-header{display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem;padding-bottom:1rem;border-bottom:1px solid var(--border)}
 .chat-back{font-family:'DM Mono',monospace;font-size:.65rem;background:transparent;
   border:1px solid var(--border);color:var(--muted);padding:.3rem .75rem;cursor:pointer;
@@ -192,7 +161,6 @@ footer{text-align:center;margin-top:2rem;font-family:'DM Mono',monospace;
 </style>
 </head>
 <body>
-
 <div class="cosmos" id="cosmos"></div>
 
 <!-- SCREEN 1: BIENVENIDA -->
@@ -220,8 +188,6 @@ footer{text-align:center;margin-top:2rem;font-family:'DM Mono',monospace;
     <div class="title-mark">✦ Acceder ✦</div>
     <h1 style="font-size:2rem">Ingresá a<br><em>Astro Matches</em></h1>
     <div class="subtitle" style="margin-bottom:2rem">Sin contraseñas</div>
-
-    <!-- Google -->
     <button class="btn-google" onclick="loginWithGoogle()">
       <svg width="20" height="20" viewBox="0 0 48 48">
         <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
@@ -231,10 +197,7 @@ footer{text-align:center;margin-top:2rem;font-family:'DM Mono',monospace;
       </svg>
       Continuar con Google
     </button>
-
     <div class="divider"><span>o ingresá con email</span></div>
-
-    <!-- Magic Link -->
     <div id="magic-form">
       <label>Tu email</label>
       <input type="email" id="magic-email" placeholder="nombre@email.com">
@@ -244,7 +207,6 @@ footer{text-align:center;margin-top:2rem;font-family:'DM Mono',monospace;
       <div class="error-msg" id="magic-error"></div>
       <div class="success-msg" id="magic-success"></div>
     </div>
-
     <div style="text-align:center;margin-top:1.5rem">
       <button class="btn-secondary" onclick="showScreen('screen-welcome')">← Volver</button>
     </div>
@@ -376,28 +338,32 @@ for (let i = 0; i < 65; i++) {
   cosmos.appendChild(s);
 }
 
-let currentUser = null;
-let userProfile = null;
+let currentUser    = null;
+let userProfile    = null;
 let selectedGenero = null;
 let currentMatchId = null;
-let likedUsers = new Set();
+let likedUsers     = new Set();
 let chatPollInterval = null;
 
-// ── Navegación ────────────────────────────────────────────────────────────
+// ── Navegación ─────────────────────────────────────────────────────────────
 function showScreen(id) {
   document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
   document.getElementById(id).classList.add('active');
 }
 
 function switchTab(tab) {
-  document.getElementById('tab-content-feed').style.display  = tab==='feed'  ? 'block' : 'none';
-  document.getElementById('tab-content-chats').style.display = tab==='chats' ? 'block' : 'none';
-  document.getElementById('tab-feed').classList.toggle('active',  tab==='feed');
-  document.getElementById('tab-chats').classList.toggle('active', tab==='chats');
-  if (tab === 'chats') cargarChats();
+  document.getElementById('tab-content-feed').style.display   = tab === 'feed'  ? 'block' : 'none';
+  document.getElementById('tab-content-chats').style.display  = tab === 'chats' ? 'block' : 'none';
+  document.getElementById('tab-feed').classList.toggle('active',  tab === 'feed');
+  document.getElementById('tab-chats').classList.toggle('active', tab === 'chats');
+  if (tab === 'chats') {
+    detenerChat();
+    mostrarListaChats();
+    cargarChats();
+  }
 }
 
-// ── Auth ──────────────────────────────────────────────────────────────────
+// ── Auth ───────────────────────────────────────────────────────────────────
 async function loginWithGoogle() {
   const { error } = await sb.auth.signInWithOAuth({
     provider: 'google',
@@ -410,45 +376,33 @@ async function sendMagicLink() {
   const email = document.getElementById('magic-email').value.trim();
   if (!email) return showError('magic-error', 'Ingresá tu email.');
   hideError('magic-error');
-
   const btn = document.getElementById('magic-btn');
   btn.disabled = true; btn.textContent = 'Enviando...';
-
   const { error } = await sb.auth.signInWithOtp({
     email,
     options: { emailRedirectTo: window.location.origin + window.location.pathname }
   });
-
   btn.disabled = false; btn.textContent = 'Enviar link de acceso';
-
   if (error) {
     showError('magic-error', error.message);
   } else {
     document.getElementById('magic-success').style.display = 'block';
-    document.getElementById('magic-success').textContent =
-      `✦ Te enviamos un link a ${email}. Revisá tu bandeja de entrada.`;
+    document.getElementById('magic-success').textContent = `✦ Te enviamos un link a ${email}. Revisá tu bandeja.`;
     document.getElementById('magic-form').style.opacity = '.5';
     document.getElementById('magic-form').style.pointerEvents = 'none';
   }
 }
 
-// FIX LOGOUT: recarga completa la página para limpiar el estado
 async function logout() {
   await sb.auth.signOut();
   window.location.href = window.location.origin + window.location.pathname;
 }
 
-// Al cargar: verificar sesión activa
 window.addEventListener('DOMContentLoaded', async () => {
   const { data: { session } } = await sb.auth.getSession();
-  if (session) {
-    currentUser = session.user;
-    await checkProfile();
-  }
-  // Si hay hash en la URL (redirect de magic link o Google), Supabase lo procesa automáticamente
+  if (session) { currentUser = session.user; await checkProfile(); }
 });
 
-// Escuchar cambios de auth
 sb.auth.onAuthStateChange(async (event, session) => {
   if ((event === 'SIGNED_IN' || event === 'TOKEN_REFRESHED') && session && !currentUser) {
     currentUser = session.user;
@@ -462,11 +416,11 @@ async function checkProfile() {
   else showScreen('screen-onboarding');
 }
 
-// ── Onboarding ────────────────────────────────────────────────────────────
+// ── Onboarding ─────────────────────────────────────────────────────────────
 function selectGenero(g) {
   selectedGenero = g;
-  document.getElementById('btn-mujer').classList.toggle('selected',  g==='mujer');
-  document.getElementById('btn-hombre').classList.toggle('selected', g==='hombre');
+  document.getElementById('btn-mujer').classList.toggle('selected',  g === 'mujer');
+  document.getElementById('btn-hombre').classList.toggle('selected', g === 'hombre');
 }
 
 async function guardarPerfil() {
@@ -474,21 +428,17 @@ async function guardarPerfil() {
   const fecha  = document.getElementById('ob-fecha').value;
   const hora   = document.getElementById('ob-hora').value;
   const ciudad = document.getElementById('ob-ciudad').value.trim();
-
   if (!nombre)         return showError('ob-error', 'Ingresá tu nombre.');
   if (!selectedGenero) return showError('ob-error', 'Seleccioná tu género.');
   if (!fecha)          return showError('ob-error', 'Ingresá tu fecha de nacimiento.');
-
   hideError('ob-error');
   const btn = document.getElementById('ob-btn');
   btn.disabled = true; btn.textContent = 'Calculando...';
-
   let horaDecimal = 12.0;
   if (hora) { const [h,m] = hora.split(':').map(Number); horaDecimal = h + m/60; }
-
   try {
     const resp = await fetch(`${BACKEND_URL}/registro`, {
-      method:'POST', headers:{'Content-Type':'application/json'},
+      method: 'POST', headers: {'Content-Type':'application/json'},
       body: JSON.stringify({
         user_id: currentUser.id, nombre, genero: selectedGenero,
         fecha, hora: horaDecimal, ciudad: ciudad || 'Buenos Aires Argentina'
@@ -504,30 +454,27 @@ async function guardarPerfil() {
   }
 }
 
-// ── Feed ──────────────────────────────────────────────────────────────────
+// ── Feed ───────────────────────────────────────────────────────────────────
 async function mostrarFeed() {
   showScreen('screen-feed');
   document.getElementById('feed-loading').style.display = 'block';
   document.getElementById('feed-content').style.display = 'none';
   hideError('feed-error');
-
-  const { data: likesData } = await sb.from('likes')
-    .select('hacia_id').eq('desde_id', currentUser.id);
+  const { data: likesData } = await sb.from('likes').select('hacia_id').eq('desde_id', currentUser.id);
   if (likesData) likesData.forEach(l => likedUsers.add(l.hacia_id));
-
   await cargarMatches();
 }
 
 async function cargarMatches() {
   try {
     const resp = await fetch(`${BACKEND_URL}/matches`, {
-      method:'POST', headers:{'Content-Type':'application/json'},
+      method: 'POST', headers: {'Content-Type':'application/json'},
       body: JSON.stringify({
-        fecha:  userProfile.fecha_nac,
-        hora:   userProfile.hora_nac || 12.0,
-        ciudad: userProfile.ciudad_nac || 'Buenos Aires Argentina',
-        nombre: userProfile.nombre,
-        genero: userProfile.genero,
+        fecha:   userProfile.fecha_nac,
+        hora:    userProfile.hora_nac || 12.0,
+        ciudad:  userProfile.ciudad_nac || 'Buenos Aires Argentina',
+        nombre:  userProfile.nombre,
+        genero:  userProfile.genero,
         user_id: currentUser.id
       })
     });
@@ -536,52 +483,53 @@ async function cargarMatches() {
 
     const planetas = document.getElementById('my-chart-planets');
     planetas.innerHTML = [['Sol',data.mi_sol],['Luna',data.mi_luna],['Asc',data.mi_asc]]
-      .filter(([,v])=>v)
-      .map(([l,v])=>`<div class="planet-item"><span class="planet-label">${l}</span><span>${v}</span></div>`)
+      .filter(([,v]) => v)
+      .map(([l,v]) => `<div class="planet-item"><span class="planet-label">${l}</span><span>${v}</span></div>`)
       .join('');
 
     const cards = document.getElementById('match-cards');
     cards.innerHTML = '';
-    const rankLabel = ['#1 Match','#2 Match','#3 Match'];
 
-    data.top3.forEach((u, i) => {
-      const userId = u.user_id || null;
-      const yaLiked = userId && likedUsers.has(userId);
-      const aspectsHtml = u.aspects.map(a =>
-        `<span class="aspect-tag ${['trino','sextil','conjunción'].includes(a.aspecto)?'harmony':''}">${a.planeta}: ${a.aspecto}</span>`
-      ).join('');
-      const analisis = (u.analisis||'').replace(/^#+\s.+\n/,'').trim();
-
-      const likeOnclick = yaLiked ? '' : `darLike('${userId}', ${u.score}, this)`;
-      const likeBtn = userId
-        ? `<button class="like-btn ${yaLiked?'liked':''}" id="like-btn-${userId}"
-            onclick="${likeOnclick}">
-            <span class="like-btn-icon">${yaLiked?'✦':'♡'}</span>
-            ${yaLiked ? 'Ya le diste like' : 'Me interesa'}
-          </button>`
-        : `<button class="like-btn" onclick="alert('Registrate para dar likes')">
-            <span class="like-btn-icon">♡</span> Me interesa
-          </button>`;
-
-      cards.innerHTML += `
-        <div class="match-card">
-          <div class="match-rank ${i===0?'gold':''}">${rankLabel[i]}</div>
-          <div class="match-header">
-            <div>
-              <div class="match-name">${u.name}</div>
-              <div class="match-meta">${u.sol}${u.age?' · '+u.age+' años':''}</div>
-              ${u.bio?`<div class="match-meta" style="margin-top:.2rem;font-size:.78rem">${u.bio}</div>`:''}
+    if (!data.top3 || data.top3.length === 0) {
+      cards.innerHTML = '<div class="empty-state">No hay matches disponibles todavía.<br>La base de usuarios está creciendo ✦</div>';
+    } else {
+      const rankLabel = ['#1 Match','#2 Match','#3 Match'];
+      data.top3.forEach((u, i) => {
+        const userId = u.user_id || null;
+        const yaLiked = userId && likedUsers.has(userId);
+        const likeOnclick = yaLiked ? '' : (userId ? `darLike('${userId}', ${u.score}, this)` : '');
+        const aspectsHtml = u.aspects.map(a =>
+          `<span class="aspect-tag ${['trino','sextil','conjunción'].includes(a.aspecto)?'harmony':''}">${a.planeta}: ${a.aspecto}</span>`
+        ).join('');
+        const analisis = (u.analisis||'').replace(/^#+\s.+\n/,'').trim();
+        const likeBtn = userId
+          ? `<button class="like-btn ${yaLiked?'liked':''}" id="like-btn-${userId}" onclick="${likeOnclick}">
+              <span class="like-btn-icon">${yaLiked?'✦':'♡'}</span>
+              ${yaLiked ? 'Ya le diste like' : 'Me interesa'}
+            </button>`
+          : `<button class="like-btn" onclick="void(0)">
+              <span class="like-btn-icon">♡</span> Me interesa
+            </button>`;
+        cards.innerHTML += `
+          <div class="match-card">
+            <div class="match-rank ${i===0?'gold':''}">${rankLabel[i]}</div>
+            <div class="match-header">
+              <div>
+                <div class="match-name">${u.name}</div>
+                <div class="match-meta">${u.sol}${u.age?' · '+u.age+' años':''}</div>
+                ${u.bio?`<div class="match-meta" style="margin-top:.2rem;font-size:.78rem">${u.bio}</div>`:''}
+              </div>
+              <div class="match-score-wrap">
+                <div class="match-score">${u.score}%</div>
+                <div class="match-score-label">sinastría</div>
+              </div>
             </div>
-            <div class="match-score-wrap">
-              <div class="match-score">${u.score}%</div>
-              <div class="match-score-label">sinastría</div>
-            </div>
-          </div>
-          ${aspectsHtml?`<div class="match-aspects">${aspectsHtml}</div>`:''}
-          <div class="match-analysis">${analisis}</div>
-          ${likeBtn}
-        </div>`;
-    });
+            ${aspectsHtml?`<div class="match-aspects">${aspectsHtml}</div>`:''}
+            <div class="match-analysis">${analisis}</div>
+            ${likeBtn}
+          </div>`;
+      });
+    }
 
     document.getElementById('feed-loading').style.display = 'none';
     document.getElementById('feed-content').style.display = 'block';
@@ -591,19 +539,17 @@ async function cargarMatches() {
   }
 }
 
-// ── Likes ─────────────────────────────────────────────────────────────────
+// ── Likes ──────────────────────────────────────────────────────────────────
 async function darLike(haciaId, score, btn) {
   if (likedUsers.has(haciaId)) return;
   btn.disabled = true;
   try {
     const resp = await fetch(`${BACKEND_URL}/like`, {
-      method:'POST', headers:{'Content-Type':'application/json'},
+      method: 'POST', headers: {'Content-Type':'application/json'},
       body: JSON.stringify({ desde_id: currentUser.id, hacia_id: haciaId, score })
     });
     const data = await resp.json();
     likedUsers.add(haciaId);
-    btn.querySelector('.like-btn-icon').textContent = '✦';
-
     if (data.match_mutuo) {
       btn.classList.add('matched');
       btn.innerHTML = '<span class="like-btn-icon">✦</span> ¡Match! Ir al chat →';
@@ -617,15 +563,24 @@ async function darLike(haciaId, score, btn) {
   }
 }
 
-// ── Chats ─────────────────────────────────────────────────────────────────
+// ── Chats ──────────────────────────────────────────────────────────────────
+function detenerChat() {
+  if (chatPollInterval) { clearInterval(chatPollInterval); chatPollInterval = null; }
+  currentMatchId = null;
+}
+
+function mostrarListaChats() {
+  document.getElementById('chat-window').style.display = 'none';
+  document.getElementById('chats-list').style.display = 'block';
+}
+
 async function cargarChats() {
   document.getElementById('chats-loading').style.display = 'block';
   document.getElementById('chats-list').innerHTML = '';
-  document.getElementById('chat-window').style.display = 'none';
 
   try {
     const resp = await fetch(`${BACKEND_URL}/mis-matches`, {
-      method:'POST', headers:{'Content-Type':'application/json'},
+      method: 'POST', headers: {'Content-Type':'application/json'},
       body: JSON.stringify({ user_id: currentUser.id })
     });
     const data = await resp.json();
@@ -633,11 +588,9 @@ async function cargarChats() {
 
     if (!data.matches || data.matches.length === 0) {
       document.getElementById('chats-list').innerHTML =
-        `<div class="empty-state">
-          Todavía no tenés matches mutuos.<br><br>
-          Explorá los astros en la pestaña <strong>Matches</strong><br>
-          y dale like a quien te interese ✦
-        </div>`;
+        `<div class="empty-state">Todavía no tenés matches mutuos.<br><br>
+        Explorá los astros en la pestaña <strong>Matches</strong><br>
+        y dale like a quien te interese ✦</div>`;
       return;
     }
 
@@ -646,7 +599,7 @@ async function cargarChats() {
         <div class="match-item" onclick="abrirChat('${m.match_id}','${m.nombre}')">
           <div>
             <div class="match-item-name">${m.nombre}</div>
-            <div class="match-item-meta">${m.sol}</div>
+            <div class="match-item-meta">${m.sol || ''}</div>
           </div>
           <div class="match-item-score">${m.score}%</div>
         </div>`;
@@ -657,34 +610,33 @@ async function cargarChats() {
 }
 
 async function abrirChat(matchId, nombre) {
+  detenerChat();
   currentMatchId = matchId;
-  if (chatPollInterval) { clearInterval(chatPollInterval); chatPollInterval = null; }
-  document.getElementById('chat-messages').innerHTML = '';
   document.getElementById('chats-list').style.display = 'none';
-  document.getElementById('chat-window').style.display = 'block';
+  document.getElementById('chat-messages').innerHTML = '';
   document.getElementById('chat-with-name').textContent = nombre;
+  document.getElementById('chat-window').style.display = 'block';
   await cargarMensajes();
   chatPollInterval = setInterval(cargarMensajes, 5000);
 }
 
-function volverAChats() {
-  if (chatPollInterval) { clearInterval(chatPollInterval); chatPollInterval = null; }
-  currentMatchId = null;
-  document.getElementById('chat-window').style.display = 'none';
-  document.getElementById('chats-list').style.display = 'block';
-  cargarChats();
+async function volverAChats() {
+  detenerChat();
+  mostrarListaChats();
+  await cargarChats();
 }
 
 async function cargarMensajes() {
+  if (!currentMatchId) return;
   try {
     const resp = await fetch(`${BACKEND_URL}/mensajes`, {
-      method:'POST', headers:{'Content-Type':'application/json'},
-      body: JSON.stringify({ action:'get', match_id: currentMatchId })
+      method: 'POST', headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({ action: 'get', match_id: currentMatchId })
     });
     const data = await resp.json();
     const container = document.getElementById('chat-messages');
+    if (!container) return;
     const atBottom = container.scrollHeight - container.clientHeight <= container.scrollTop + 20;
-
     container.innerHTML = (data.mensajes||[]).map(m => {
       const mine = m.autor_id === currentUser.id;
       const time = new Date(m.created_at).toLocaleTimeString('es-AR',{hour:'2-digit',minute:'2-digit'});
@@ -693,7 +645,6 @@ async function cargarMensajes() {
         <div class="msg-time">${time}</div>
       </div>`;
     }).join('') || `<div class="empty-state" style="padding:1.5rem">Iniciá la conversación ✦</div>`;
-
     if (atBottom) container.scrollTop = container.scrollHeight;
   } catch(err) {}
 }
@@ -701,12 +652,12 @@ async function cargarMensajes() {
 async function enviarMensaje() {
   const input = document.getElementById('chat-input');
   const texto = input.value.trim();
-  if (!texto || texto.length > 140) return;
+  if (!texto || texto.length > 140 || !currentMatchId) return;
   input.value = ''; updateCharCount();
   try {
     await fetch(`${BACKEND_URL}/mensajes`, {
-      method:'POST', headers:{'Content-Type':'application/json'},
-      body: JSON.stringify({ action:'send', match_id: currentMatchId, autor_id: currentUser.id, texto })
+      method: 'POST', headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({ action: 'send', match_id: currentMatchId, autor_id: currentUser.id, texto })
     });
     await cargarMensajes();
   } catch(err) {}
@@ -720,8 +671,7 @@ function updateCharCount() {
 }
 
 document.addEventListener('keydown', e => {
-  if (e.key === 'Enter' && !e.shiftKey &&
-      document.activeElement === document.getElementById('chat-input')) {
+  if (e.key === 'Enter' && !e.shiftKey && document.activeElement === document.getElementById('chat-input')) {
     e.preventDefault(); enviarMensaje();
   }
 });
