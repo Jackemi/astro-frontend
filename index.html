@@ -470,14 +470,11 @@ async function cargarMatches() {
     const resp = await fetch(`${BACKEND_URL}/matches`, {
       method: 'POST', headers: {'Content-Type':'application/json'},
       body: JSON.stringify({
-        fecha:   userProfile.fecha_nac,
-        hora:    userProfile.hora_nac || 12.0,
-        ciudad:  userProfile.ciudad_nac || 'Buenos Aires Argentina',
         nombre:  userProfile.nombre,
-        genero:  userProfile.genero,
         user_id: currentUser.id
       })
     });
+    
     const data = await resp.json();
     if (data.error) throw new Error(data.error);
 
