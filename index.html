@@ -21,10 +21,14 @@ body{font-family:'Cormorant Garamond',serif;background:var(--paper);color:var(--
 .cosmos{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;overflow:hidden}
 .star{position:absolute;border-radius:50%;background:var(--gold);opacity:0;animation:twinkle var(--d,3s) ease-in-out infinite var(--delay,0s)}
 @keyframes twinkle{0%,100%{opacity:0}50%{opacity:var(--op,.4)}}
+
+/* SCREENS */
 .screen{display:none;position:relative;z-index:1;min-height:100vh;padding:2rem 1rem 4rem}
 .screen.active{display:flex;flex-direction:column;align-items:center;justify-content:center}
 .screen.top{justify-content:flex-start;padding-top:0}
-.wrap{width:100%;max-width:680px;margin:0 auto}
+.wrap{width:100%;max-width:1200px;margin:0 auto}
+
+/* TYPOGRAPHY */
 .title-mark{font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.2em;color:var(--gold);text-transform:uppercase;margin-bottom:.75rem;text-align:center}
 h1{font-size:3rem;font-weight:300;line-height:1.1;letter-spacing:-.01em;text-align:center}
 h1 em{font-style:italic;color:var(--gold)}
@@ -37,17 +41,21 @@ h1 em{font-style:italic;color:var(--gold)}
 .card-title{font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.15em;color:var(--gold);text-transform:uppercase;margin-bottom:1rem}
 .disclaimer{background:var(--card);border:1px solid var(--border);padding:1.5rem;margin:2rem 0;font-size:.95rem;line-height:1.8;color:var(--muted);font-style:italic}
 .disclaimer strong{color:var(--ink);font-style:normal}
+
+/* FORMS */
 .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem}
 @media(max-width:480px){.form-grid{grid-template-columns:1fr}}
 label{display:block;font-size:.82rem;color:var(--muted);font-style:italic;margin-bottom:.3rem;margin-top:.9rem}
 label:first-of-type{margin-top:0}
-input[type=text],input[type=email],input[type=date],input[type=time],select,textarea{
+input[type=text],input[type=email],input[type=date],input[type=time],textarea{
   width:100%;background:transparent;border:none;border-bottom:1px solid var(--border);
   color:var(--ink);font-family:'Cormorant Garamond',serif;font-size:1rem;
   padding:.4rem 0;outline:none;transition:border-color .2s;resize:none}
-input:focus,select:focus,textarea:focus{border-color:var(--gold)}
+input:focus,textarea:focus{border-color:var(--gold)}
 input[type=date],input[type=time]{color-scheme:light dark}
 .opt-note{font-size:.72rem;color:var(--muted);font-style:italic;margin-top:.2rem}
+
+/* BUTTONS */
 .btn-wrap{text-align:center;margin:1.5rem 0}
 .btn-primary{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:600;
   letter-spacing:.08em;color:var(--paper);background:var(--ink);border:none;
@@ -64,26 +72,40 @@ input[type=date],input[type=time]{color-scheme:light dark}
   font-family:'Cormorant Garamond',serif;font-size:.95rem;padding:.5rem 1.5rem;
   cursor:pointer;transition:background .2s,color .2s}
 .btn-secondary:hover{background:var(--border);color:var(--ink)}
+.btn-small{font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.1em;
+  text-transform:uppercase;background:transparent;border:1px solid var(--border);
+  color:var(--muted);padding:.35rem .9rem;cursor:pointer;transition:all .2s}
+.btn-small:hover{border-color:var(--gold);color:var(--gold)}
+.btn-small.active{border-color:var(--gold);color:var(--gold)}
+
+/* GENDER */
 .gender-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:.5rem}
 .gender-btn{padding:1rem;border:1px solid var(--border);background:transparent;
   cursor:pointer;font-family:'Cormorant Garamond',serif;font-size:1rem;
   color:var(--muted);transition:all .2s;text-align:center}
 .gender-btn.selected{border-color:var(--gold);color:var(--gold);background:var(--card)}
 .gender-glyph{font-size:1.5rem;display:block;margin-bottom:.25rem}
+
+/* LOADING */
 .loading-state{text-align:center;padding:3rem}
 .orbit{width:56px;height:56px;border:1px solid var(--border);border-top-color:var(--gold);
   border-radius:50%;animation:spin 1.2s linear infinite;margin:0 auto 1rem}
 @keyframes spin{to{transform:rotate(360deg)}}
 .loading-text{font-style:italic;color:var(--muted)}
 .loading-sub{font-family:'DM Mono',monospace;font-size:.7rem;color:var(--muted);margin-top:.5rem}
+
+/* ERRORS */
 .error-msg{background:var(--card);border:1px solid var(--rust);color:var(--rust);
   padding:1rem 1.25rem;font-size:.95rem;display:none;margin:1rem 0;line-height:1.5}
 .success-msg{background:var(--card);border:1px solid var(--green);color:var(--green);
   padding:1rem 1.25rem;font-size:.95rem;display:none;margin:1rem 0;font-style:italic}
+
+/* NAV */
 .nav{display:flex;justify-content:space-between;align-items:center;
   padding:.75rem 1.5rem;border-bottom:1px solid var(--border);
   background:var(--paper);position:sticky;top:0;z-index:10;width:100%}
 .nav-brand{font-family:'DM Mono',monospace;font-size:.75rem;letter-spacing:.15em;color:var(--gold);text-transform:uppercase}
+.nav-actions{display:flex;align-items:center;gap:.5rem}
 .nav-tab{font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.08em;
   background:transparent;border:1px solid var(--border);color:var(--muted);
   padding:.3rem .75rem;cursor:pointer;transition:all .2s;text-transform:uppercase}
@@ -92,35 +114,78 @@ input[type=date],input[type=time]{color-scheme:light dark}
   background:transparent;border:1px solid var(--border);color:var(--muted);
   padding:.3rem .75rem;cursor:pointer;transition:all .2s;text-transform:uppercase}
 .nav-logout:hover{border-color:var(--rust);color:var(--rust)}
-.my-chart{background:var(--card);border:1px solid var(--border);padding:1rem 1.5rem;margin-bottom:1.5rem}
-.my-chart-planets{display:flex;gap:1.5rem;flex-wrap:wrap;margin-top:.5rem}
-.planet-item .planet-label{font-family:'DM Mono',monospace;font-size:.6rem;color:var(--muted);text-transform:uppercase;display:block;margin-bottom:.1rem}
-.match-card{background:var(--card);border:1px solid var(--border);padding:1.75rem;
-  margin-bottom:1.25rem;position:relative;animation:fadeUp .5s ease both}
-.match-card:nth-child(1){animation-delay:.1s}.match-card:nth-child(2){animation-delay:.25s}.match-card:nth-child(3){animation-delay:.4s}
-@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+
+/* FEED LAYOUT — dos columnas */
+.feed-layout{display:grid;grid-template-columns:340px 1fr;gap:2rem;padding-top:2rem;align-items:start}
+@media(max-width:900px){.feed-layout{grid-template-columns:1fr}}
+
+/* PANEL IZQUIERDO — carta natal */
+.carta-panel{position:sticky;top:80px}
+.carta-nombre{font-size:1.6rem;font-weight:600;margin-bottom:.25rem}
+.carta-fecha{font-size:.82rem;color:var(--muted);font-style:italic;margin-bottom:1.25rem}
+
+/* RUEDA ZODIACAL */
+.rueda-wrap{position:relative;width:100%;padding-bottom:100%;margin-bottom:1.25rem}
+.rueda-wrap svg{position:absolute;top:0;left:0;width:100%;height:100%}
+
+/* TABLA PLANETAS */
+.planetas-tabla{width:100%;border-collapse:collapse;font-size:.88rem;margin-bottom:1.25rem}
+.planetas-tabla tr{border-bottom:1px solid var(--border)}
+.planetas-tabla tr:last-child{border-bottom:none}
+.planetas-tabla td{padding:.4rem .25rem}
+.planetas-tabla .glyph{font-size:1.1rem;width:28px;color:var(--gold)}
+.planetas-tabla .nombre-p{color:var(--muted);font-style:italic;width:90px}
+.planetas-tabla .signo-p{font-weight:600}
+
+/* DESCRIPCION ASTRAL */
+.descripcion-astral{font-size:.95rem;line-height:1.8;color:var(--muted);font-style:italic;
+  border-top:1px solid var(--border);padding-top:1rem;margin-top:.5rem}
+
+/* PANEL DERECHO — matches */
+.matches-panel{}
+.matches-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem}
+.matches-title{font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.2em;color:var(--gold);text-transform:uppercase}
+.btn-refresh{font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.1em;
+  text-transform:uppercase;background:transparent;border:1px solid var(--border);
+  color:var(--muted);padding:.4rem 1rem;cursor:pointer;transition:all .2s;
+  display:flex;align-items:center;gap:.5rem}
+.btn-refresh:hover{border-color:var(--gold);color:var(--gold)}
+.btn-refresh:disabled{opacity:.4;cursor:not-allowed}
+.btn-refresh .spin{display:inline-block;animation:spin 1s linear infinite}
+
+/* MATCH CARDS */
+.match-card{background:var(--card);border:1px solid var(--border);padding:1.5rem;
+  margin-bottom:1rem;position:relative;animation:fadeUp .5s ease both}
+.match-card:nth-child(1){animation-delay:.05s}
+.match-card:nth-child(2){animation-delay:.15s}
+.match-card:nth-child(3){animation-delay:.25s}
+@keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
 .match-rank{position:absolute;top:-1px;left:-1px;font-family:'DM Mono',monospace;
   font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;padding:.3rem .65rem;
   background:var(--ink);color:var(--paper)}
 .match-rank.gold{background:var(--gold)}
-.match-header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1rem;padding-top:.75rem}
-.match-name{font-size:1.5rem;font-weight:600}
-.match-meta{font-size:.85rem;color:var(--muted);font-style:italic;margin-top:.15rem}
+.match-header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:.75rem;padding-top:.6rem}
+.match-name{font-size:1.3rem;font-weight:600}
+.match-meta{font-size:.82rem;color:var(--muted);font-style:italic;margin-top:.1rem}
 .match-score-wrap{text-align:right;flex-shrink:0;margin-left:1rem}
-.match-score{font-size:2.8rem;font-weight:300;color:var(--gold);line-height:1;font-style:italic}
+.match-score{font-size:2.4rem;font-weight:300;color:var(--gold);line-height:1;font-style:italic}
 .match-score-label{font-family:'DM Mono',monospace;font-size:.6rem;color:var(--muted);letter-spacing:.1em;text-transform:uppercase}
-.match-aspects{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1rem}
-.aspect-tag{font-family:'DM Mono',monospace;font-size:.65rem;border:1px solid var(--border);padding:.2rem .5rem;color:var(--muted)}
+.match-aspects{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:.75rem}
+.aspect-tag{font-family:'DM Mono',monospace;font-size:.62rem;border:1px solid var(--border);padding:.18rem .45rem;color:var(--muted)}
 .aspect-tag.harmony{border-color:var(--gold);color:var(--gold)}
-.match-analysis{font-size:1rem;line-height:1.8;color:var(--ink);font-weight:300;font-style:italic;border-top:1px solid var(--border);padding-top:1rem;margin-bottom:1.25rem}
+.match-analysis{font-size:.95rem;line-height:1.75;color:var(--ink);font-weight:300;font-style:italic;border-top:1px solid var(--border);padding-top:.75rem;margin-bottom:1rem}
 .like-btn{display:flex;align-items:center;justify-content:center;gap:.6rem;
-  width:100%;padding:.85rem;font-family:'Cormorant Garamond',serif;font-size:1rem;
+  width:100%;padding:.8rem;font-family:'Cormorant Garamond',serif;font-size:1rem;
   font-weight:600;letter-spacing:.05em;background:var(--ink);color:var(--paper);
   border:none;cursor:pointer;transition:all .2s}
 .like-btn:hover{background:var(--gold)}
 .like-btn.liked{background:transparent;color:var(--gold);border:1px solid var(--gold);cursor:default}
 .like-btn.matched{background:var(--green);color:var(--paper)}
 .like-btn-icon{font-size:1.1rem}
+.cached-note{font-family:'DM Mono',monospace;font-size:.6rem;color:var(--muted);
+  text-align:center;margin-bottom:.75rem;letter-spacing:.05em}
+
+/* CHATS */
 .match-item{background:var(--card);border:1px solid var(--border);padding:1.25rem;
   margin-bottom:.75rem;cursor:pointer;transition:border-color .2s;display:flex;
   align-items:center;justify-content:space-between}
@@ -165,7 +230,7 @@ footer{text-align:center;margin-top:2rem;font-family:'DM Mono',monospace;
 
 <!-- SCREEN 1: BIENVENIDA -->
 <div class="screen active" id="screen-welcome">
-  <div class="wrap">
+  <div class="wrap" style="max-width:680px">
     <div class="title-mark">✦ Astro Matches ✦</div>
     <h1>Encontrá tu<br><em>afinidad astral</em></h1>
     <div class="subtitle">Compatibilidad basada en sinastría astrológica real</div>
@@ -258,38 +323,64 @@ footer{text-align:center;margin-top:2rem;font-family:'DM Mono',monospace;
   </div>
 </div>
 
-<!-- SCREEN 4: FEED + CHATS -->
+<!-- SCREEN 4: FEED -->
 <div class="screen top" id="screen-feed">
   <nav class="nav">
     <div class="nav-brand">✦ Astro Matches</div>
-    <div style="display:flex;align-items:center;gap:.5rem">
+    <div class="nav-actions">
       <button class="nav-tab active" id="tab-feed" onclick="switchTab('feed')">Matches</button>
       <button class="nav-tab" id="tab-chats" onclick="switchTab('chats')">Chats</button>
+      <button class="nav-tab" onclick="showScreen('screen-welcome')" style="border-color:var(--border)">Inicio</button>
       <button class="nav-logout" onclick="logout()">Salir</button>
     </div>
   </nav>
 
-  <div class="wrap" style="padding-top:2rem">
+  <div class="wrap">
 
     <!-- TAB FEED -->
     <div id="tab-content-feed">
       <div id="feed-loading" class="loading-state">
         <div class="orbit"></div>
-        <div class="loading-text">Consultando los astros...</div>
-        <div class="loading-sub">calculando sinastría con Swiss Ephemeris</div>
+        <div class="loading-text">Cargando tu perfil astral...</div>
+        <div class="loading-sub" id="feed-loading-sub">conectando con los astros</div>
       </div>
+
       <div id="feed-content" style="display:none">
-        <div class="my-chart">
-          <div class="card-title">✦ Tu carta natal</div>
-          <div class="my-chart-planets" id="my-chart-planets"></div>
-        </div>
-        <div style="margin-bottom:1.5rem">
-          <div class="title-mark">✦ Tus mejores matches ✦</div>
-        </div>
-        <div id="match-cards"></div>
-        <div class="share-note">
-          Análisis generado por IA · Cálculos con Swiss Ephemeris<br>
-          El mismo motor que Co-Star y Astro.com · Prototype v0.3
+        <div class="feed-layout">
+
+          <!-- COLUMNA IZQUIERDA: carta natal -->
+          <div class="carta-panel">
+            <div class="card-title">✦ Tu carta natal</div>
+            <div class="carta-nombre" id="carta-nombre"></div>
+            <div class="carta-fecha" id="carta-fecha"></div>
+
+            <!-- Rueda zodiacal -->
+            <div class="rueda-wrap">
+              <svg id="rueda-svg" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg"></svg>
+            </div>
+
+            <!-- Tabla planetas -->
+            <table class="planetas-tabla" id="planetas-tabla"></table>
+
+            <!-- Descripción astral -->
+            <div class="descripcion-astral" id="descripcion-astral"></div>
+          </div>
+
+          <!-- COLUMNA DERECHA: matches -->
+          <div class="matches-panel">
+            <div class="matches-header">
+              <div class="matches-title">✦ Tus mejores matches</div>
+              <button class="btn-refresh" id="btn-refresh" onclick="buscarMatchesFresh()">
+                <span id="refresh-icon">↻</span> Actualizar
+              </button>
+            </div>
+            <div class="cached-note" id="cached-note" style="display:none"></div>
+            <div id="match-cards"></div>
+            <div class="share-note">
+              Análisis generado por IA · Swiss Ephemeris · Prototype v0.5
+            </div>
+          </div>
+
         </div>
       </div>
       <div class="error-msg" id="feed-error"></div>
@@ -338,6 +429,12 @@ for (let i = 0; i < 65; i++) {
   cosmos.appendChild(s);
 }
 
+// Signos zodiacales
+const SIGN_GLYPHS = ['♈','♉','♊','♋','♌','♍','♎','♏','♐','♑','♒','♓'];
+const SIGN_NAMES  = ['Aries','Tauro','Géminis','Cáncer','Leo','Virgo','Libra','Escorpio','Sagitario','Capricornio','Acuario','Piscis'];
+const SIGN_COLORS = ['#c0392b','#8b6914','#2980b9','#c0392b','#d4a017','#27ae60',
+                     '#8e44ad','#2c3e50','#e67e22','#7f8c8d','#2980b9','#1abc9c'];
+
 let currentUser    = null;
 let userProfile    = null;
 let selectedGenero = null;
@@ -345,25 +442,21 @@ let currentMatchId = null;
 let likedUsers     = new Set();
 let chatPollInterval = null;
 
-// ── Navegación ─────────────────────────────────────────────────────────────
+// ── Navegación ──────────────────────────────────────────────────────────────
 function showScreen(id) {
   document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
   document.getElementById(id).classList.add('active');
 }
 
 function switchTab(tab) {
-  document.getElementById('tab-content-feed').style.display   = tab === 'feed'  ? 'block' : 'none';
-  document.getElementById('tab-content-chats').style.display  = tab === 'chats' ? 'block' : 'none';
-  document.getElementById('tab-feed').classList.toggle('active',  tab === 'feed');
-  document.getElementById('tab-chats').classList.toggle('active', tab === 'chats');
-  if (tab === 'chats') {
-    detenerChat();
-    mostrarListaChats();
-    cargarChats();
-  }
+  document.getElementById('tab-content-feed').style.display   = tab==='feed'  ? 'block':'none';
+  document.getElementById('tab-content-chats').style.display  = tab==='chats' ? 'block':'none';
+  document.getElementById('tab-feed').classList.toggle('active',  tab==='feed');
+  document.getElementById('tab-chats').classList.toggle('active', tab==='chats');
+  if (tab === 'chats') { detenerChat(); mostrarListaChats(); cargarChats(); }
 }
 
-// ── Auth ───────────────────────────────────────────────────────────────────
+// ── Auth ────────────────────────────────────────────────────────────────────
 async function loginWithGoogle() {
   const { error } = await sb.auth.signInWithOAuth({
     provider: 'google',
@@ -379,15 +472,13 @@ async function sendMagicLink() {
   const btn = document.getElementById('magic-btn');
   btn.disabled = true; btn.textContent = 'Enviando...';
   const { error } = await sb.auth.signInWithOtp({
-    email,
-    options: { emailRedirectTo: window.location.origin + window.location.pathname }
+    email, options: { emailRedirectTo: window.location.origin + window.location.pathname }
   });
   btn.disabled = false; btn.textContent = 'Enviar link de acceso';
-  if (error) {
-    showError('magic-error', error.message);
-  } else {
+  if (error) showError('magic-error', error.message);
+  else {
     document.getElementById('magic-success').style.display = 'block';
-    document.getElementById('magic-success').textContent = `✦ Te enviamos un link a ${email}. Revisá tu bandeja.`;
+    document.getElementById('magic-success').textContent = '✦ Link enviado a ' + email;
     document.getElementById('magic-form').style.opacity = '.5';
     document.getElementById('magic-form').style.pointerEvents = 'none';
   }
@@ -404,7 +495,7 @@ window.addEventListener('DOMContentLoaded', async () => {
 });
 
 sb.auth.onAuthStateChange(async (event, session) => {
-  if ((event === 'SIGNED_IN' || event === 'TOKEN_REFRESHED') && session && !currentUser) {
+  if ((event==='SIGNED_IN'||event==='TOKEN_REFRESHED') && session && !currentUser) {
     currentUser = session.user;
     await checkProfile();
   }
@@ -412,15 +503,15 @@ sb.auth.onAuthStateChange(async (event, session) => {
 
 async function checkProfile() {
   const { data } = await sb.from('profiles').select('*').eq('id', currentUser.id).single();
-  if (data) { userProfile = data; mostrarFeed(); }
+  if (data) { userProfile = data; await mostrarFeed(); }
   else showScreen('screen-onboarding');
 }
 
-// ── Onboarding ─────────────────────────────────────────────────────────────
+// ── Onboarding ──────────────────────────────────────────────────────────────
 function selectGenero(g) {
   selectedGenero = g;
-  document.getElementById('btn-mujer').classList.toggle('selected',  g === 'mujer');
-  document.getElementById('btn-hombre').classList.toggle('selected', g === 'hombre');
+  document.getElementById('btn-mujer').classList.toggle('selected',  g==='mujer');
+  document.getElementById('btn-hombre').classList.toggle('selected', g==='hombre');
 }
 
 async function guardarPerfil() {
@@ -428,121 +519,268 @@ async function guardarPerfil() {
   const fecha  = document.getElementById('ob-fecha').value;
   const hora   = document.getElementById('ob-hora').value;
   const ciudad = document.getElementById('ob-ciudad').value.trim();
-  if (!nombre)         return showError('ob-error', 'Ingresá tu nombre.');
-  if (!selectedGenero) return showError('ob-error', 'Seleccioná tu género.');
-  if (!fecha)          return showError('ob-error', 'Ingresá tu fecha de nacimiento.');
+  if (!nombre)         return showError('ob-error','Ingresá tu nombre.');
+  if (!selectedGenero) return showError('ob-error','Seleccioná tu género.');
+  if (!fecha)          return showError('ob-error','Ingresá tu fecha de nacimiento.');
   hideError('ob-error');
   const btn = document.getElementById('ob-btn');
   btn.disabled = true; btn.textContent = 'Calculando...';
   let horaDecimal = 12.0;
-  if (hora) { const [h,m] = hora.split(':').map(Number); horaDecimal = h + m/60; }
+  if (hora) { const [h,m]=hora.split(':').map(Number); horaDecimal=h+m/60; }
   try {
     const resp = await fetch(`${BACKEND_URL}/registro`, {
-      method: 'POST', headers: {'Content-Type':'application/json'},
+      method:'POST', headers:{'Content-Type':'application/json'},
       body: JSON.stringify({
         user_id: currentUser.id, nombre, genero: selectedGenero,
-        fecha, hora: horaDecimal, ciudad: ciudad || 'Buenos Aires Argentina'
+        fecha, hora: horaDecimal, ciudad: ciudad||'Buenos Aires Argentina'
       })
     });
     const data = await resp.json();
     if (data.error) throw new Error(data.error);
     userProfile = data.perfil;
-    mostrarFeed();
+    await mostrarFeed();
   } catch(err) {
     showError('ob-error', `Error: ${err.message}`);
-    btn.disabled = false; btn.textContent = 'Calcular mi carta natal ✦';
+    btn.disabled=false; btn.textContent='Calcular mi carta natal ✦';
   }
 }
 
-// ── Feed ───────────────────────────────────────────────────────────────────
+// ── Feed ────────────────────────────────────────────────────────────────────
 async function mostrarFeed() {
   showScreen('screen-feed');
   document.getElementById('feed-loading').style.display = 'block';
   document.getElementById('feed-content').style.display = 'none';
   hideError('feed-error');
+
+  document.getElementById('feed-loading-sub').textContent = 'cargando tu carta natal...';
+
+  // Cargar likes previos
   const { data: likesData } = await sb.from('likes').select('hacia_id').eq('desde_id', currentUser.id);
   if (likesData) likesData.forEach(l => likedUsers.add(l.hacia_id));
-  await cargarMatches();
+
+  // Cargar perfil completo con planetas para la rueda
+  try {
+    const resp = await fetch(`${BACKEND_URL}/perfil`, {
+      method:'POST', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({ user_id: currentUser.id })
+    });
+    const perfil = await resp.json();
+    if (!perfil.error) renderCartaNatal(perfil);
+  } catch(e) {}
+
+  // Mostrar matches guardados si existen
+  if (userProfile.ultimo_top3) {
+    try {
+      const top3 = typeof userProfile.ultimo_top3 === 'string'
+        ? JSON.parse(userProfile.ultimo_top3)
+        : userProfile.ultimo_top3;
+      if (top3 && top3.length > 0) {
+        renderMatchCards(top3);
+        const fecha = new Date(userProfile.updated_at || Date.now());
+        document.getElementById('cached-note').style.display = 'block';
+        document.getElementById('cached-note').textContent =
+          'Matches del ' + fecha.toLocaleDateString('es-AR') + ' · Presioná Actualizar para buscar de nuevo';
+        document.getElementById('feed-loading').style.display = 'none';
+        document.getElementById('feed-content').style.display = 'block';
+        return;
+      }
+    } catch(e) {}
+  }
+
+  // Si no hay matches guardados, calcular
+  await buscarMatchesFresh();
 }
 
-async function cargarMatches() {
+async function buscarMatchesFresh() {
+  const btn = document.getElementById('btn-refresh');
+  if (btn) { btn.disabled=true; document.getElementById('refresh-icon').className='spin'; btn.querySelector('span').textContent='↻'; }
+  document.getElementById('feed-loading').style.display = 'block';
+  document.getElementById('feed-content').style.display = 'none';
+  document.getElementById('feed-loading-sub').textContent = 'buscando tus mejores matches...';
+
   try {
     const resp = await fetch(`${BACKEND_URL}/matches`, {
-      method: 'POST', headers: {'Content-Type':'application/json'},
-      body: JSON.stringify({
-        nombre:  userProfile.nombre,
-        user_id: currentUser.id
-      })
+      method:'POST', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({ nombre: userProfile.nombre, user_id: currentUser.id })
     });
-
     const data = await resp.json();
     if (data.error) throw new Error(data.error);
 
-    const planetas = document.getElementById('my-chart-planets');
-    planetas.innerHTML = [['Sol',data.mi_sol],['Luna',data.mi_luna],['Asc',data.mi_asc]]
-      .filter(([,v]) => v)
-      .map(([l,v]) => `<div class="planet-item"><span class="planet-label">${l}</span><span>${v}</span></div>`)
-      .join('');
+    renderMatchCards(data.top3 || []);
+    document.getElementById('cached-note').style.display = 'none';
 
-    const cards = document.getElementById('match-cards');
-    cards.innerHTML = '';
-
-    if (!data.top3 || data.top3.length === 0) {
-      cards.innerHTML = '<div class="empty-state">No hay matches disponibles todavía.<br>La base de usuarios está creciendo ✦</div>';
-    } else {
-      const rankLabel = ['#1 Match','#2 Match','#3 Match'];
-      data.top3.forEach((u, i) => {
-        const userId = u.user_id || null;
-        const yaLiked = userId && likedUsers.has(userId);
-        const likeOnclick = yaLiked ? '' : (userId ? `darLike('${userId}', ${u.score}, this)` : '');
-        const aspectsHtml = u.aspects.map(a =>
-          `<span class="aspect-tag ${['trino','sextil','conjunción'].includes(a.aspecto)?'harmony':''}">${a.planeta}: ${a.aspecto}</span>`
-        ).join('');
-        const analisis = (u.analisis||'').replace(/^#+\s.+\n/,'').trim();
-        const likeBtn = userId
-          ? `<button class="like-btn ${yaLiked?'liked':''}" id="like-btn-${userId}" onclick="${likeOnclick}">
-              <span class="like-btn-icon">${yaLiked?'✦':'♡'}</span>
-              ${yaLiked ? 'Ya le diste like' : 'Me interesa'}
-            </button>`
-          : `<button class="like-btn" onclick="void(0)">
-              <span class="like-btn-icon">♡</span> Me interesa
-            </button>`;
-        cards.innerHTML += `
-          <div class="match-card">
-            <div class="match-rank ${i===0?'gold':''}">${rankLabel[i]}</div>
-            <div class="match-header">
-              <div>
-                <div class="match-name">${u.name}</div>
-                <div class="match-meta">${u.sol}${u.age?' · '+u.age+' años':''}</div>
-                ${u.bio?`<div class="match-meta" style="margin-top:.2rem;font-size:.78rem">${u.bio}</div>`:''}
-              </div>
-              <div class="match-score-wrap">
-                <div class="match-score">${u.score}%</div>
-                <div class="match-score-label">sinastría</div>
-              </div>
-            </div>
-            ${aspectsHtml?`<div class="match-aspects">${aspectsHtml}</div>`:''}
-            <div class="match-analysis">${analisis}</div>
-            ${likeBtn}
-          </div>`;
-      });
-    }
+    // Guardar en Supabase
+    await sb.from('profiles').update({ ultimo_top3: data.top3 }).eq('id', currentUser.id);
 
     document.getElementById('feed-loading').style.display = 'none';
     document.getElementById('feed-content').style.display = 'block';
   } catch(err) {
     document.getElementById('feed-loading').style.display = 'none';
     showError('feed-error', `No se pudo cargar: ${err.message}`);
+    document.getElementById('feed-content').style.display = 'block';
+  } finally {
+    if (btn) {
+      btn.disabled=false;
+      document.getElementById('refresh-icon').className='';
+      btn.querySelector('span').textContent='↻';
+    }
   }
 }
 
-// ── Likes ──────────────────────────────────────────────────────────────────
+// ── Rueda zodiacal SVG ──────────────────────────────────────────────────────
+function renderCartaNatal(perfil) {
+  document.getElementById('carta-nombre').textContent = perfil.nombre || '';
+  document.getElementById('carta-fecha').textContent  = perfil.fecha_nac
+    ? new Date(perfil.fecha_nac + 'T12:00:00').toLocaleDateString('es-AR', {year:'numeric',month:'long',day:'numeric'})
+    : '';
+
+  const svg = document.getElementById('rueda-svg');
+  svg.innerHTML = '';
+  const CX=150, CY=150, R_OUT=130, R_IN=90, R_SIGN=110, R_PLANET=72;
+
+  // Fondo
+  const bg = document.createElementNS('http://www.w3.org/2000/svg','circle');
+  bg.setAttribute('cx',CX); bg.setAttribute('cy',CY); bg.setAttribute('r',R_OUT);
+  bg.setAttribute('fill','var(--card)'); bg.setAttribute('stroke','var(--border)'); bg.setAttribute('stroke-width','1');
+  svg.appendChild(bg);
+
+  // Círculo interno
+  const ci = document.createElementNS('http://www.w3.org/2000/svg','circle');
+  ci.setAttribute('cx',CX); ci.setAttribute('cy',CY); ci.setAttribute('r',R_IN);
+  ci.setAttribute('fill','none'); ci.setAttribute('stroke','var(--border)'); ci.setAttribute('stroke-width','0.5');
+  svg.appendChild(ci);
+
+  // 12 sectores de signos
+  for (let i=0; i<12; i++) {
+    const startAngle = (i*30-90) * Math.PI/180;
+    const endAngle   = ((i+1)*30-90) * Math.PI/180;
+    const x1 = CX + R_OUT * Math.cos(startAngle);
+    const y1 = CY + R_OUT * Math.sin(startAngle);
+    const x2 = CX + R_IN  * Math.cos(startAngle);
+    const y2 = CY + R_IN  * Math.sin(startAngle);
+
+    // Línea divisoria
+    const line = document.createElementNS('http://www.w3.org/2000/svg','line');
+    line.setAttribute('x1',x2); line.setAttribute('y1',y2);
+    line.setAttribute('x2',x1); line.setAttribute('y2',y1);
+    line.setAttribute('stroke','var(--border)'); line.setAttribute('stroke-width','0.5');
+    svg.appendChild(line);
+
+    // Glyph del signo
+    const midAngle = ((i*30+15)-90) * Math.PI/180;
+    const tx = CX + R_SIGN * Math.cos(midAngle);
+    const ty = CY + R_SIGN * Math.sin(midAngle);
+    const t = document.createElementNS('http://www.w3.org/2000/svg','text');
+    t.setAttribute('x',tx); t.setAttribute('y',ty);
+    t.setAttribute('text-anchor','middle'); t.setAttribute('dominant-baseline','central');
+    t.setAttribute('font-size','11'); t.setAttribute('fill','var(--muted)');
+    t.textContent = SIGN_GLYPHS[i];
+    svg.appendChild(t);
+  }
+
+  // Planetas
+  if (perfil.planetas_rueda) {
+    perfil.planetas_rueda.forEach(p => {
+      const angle = (p.lon - 90) * Math.PI/180;
+      const px = CX + R_PLANET * Math.cos(angle);
+      const py = CY + R_PLANET * Math.sin(angle);
+
+      // Punto
+      const dot = document.createElementNS('http://www.w3.org/2000/svg','circle');
+      dot.setAttribute('cx',px); dot.setAttribute('cy',py); dot.setAttribute('r','3');
+      dot.setAttribute('fill','var(--gold)');
+      svg.appendChild(dot);
+
+      // Glyph del planeta
+      const pt = document.createElementNS('http://www.w3.org/2000/svg','text');
+      pt.setAttribute('x', px+8); pt.setAttribute('y', py);
+      pt.setAttribute('text-anchor','start'); pt.setAttribute('dominant-baseline','central');
+      pt.setAttribute('font-size','10'); pt.setAttribute('fill','var(--ink)');
+      pt.textContent = p.glyph;
+      svg.appendChild(pt);
+    });
+  }
+
+  // Tabla de planetas
+  const tabla = document.getElementById('planetas-tabla');
+  tabla.innerHTML = '';
+  if (perfil.planetas_rueda) {
+    perfil.planetas_rueda.forEach(p => {
+      const tr = document.createElement('tr');
+      tr.innerHTML = `<td class="glyph">${p.glyph}</td>
+        <td class="nombre-p">${p.nombre}</td>
+        <td class="signo-p">${p.formato}</td>`;
+      tabla.appendChild(tr);
+    });
+    if (perfil.ascendente) {
+      const tr = document.createElement('tr');
+      tr.innerHTML = `<td class="glyph">⬆</td>
+        <td class="nombre-p">Ascendente</td>
+        <td class="signo-p">${perfil.ascendente}</td>`;
+      tabla.appendChild(tr);
+    }
+  }
+
+  // Descripción astral
+  if (perfil.descripcion_astral) {
+    document.getElementById('descripcion-astral').textContent = perfil.descripcion_astral;
+  }
+}
+
+// ── Render match cards ──────────────────────────────────────────────────────
+function renderMatchCards(top3) {
+  const cards = document.getElementById('match-cards');
+  cards.innerHTML = '';
+
+  if (!top3 || top3.length === 0) {
+    cards.innerHTML = '<div class="empty-state">No hay matches disponibles todavía.<br>La base de usuarios está creciendo ✦</div>';
+    return;
+  }
+
+  const rankLabel = ['#1 Match','#2 Match','#3 Match'];
+  top3.forEach((u, i) => {
+    const userId  = u.user_id || null;
+    const yaLiked = userId && likedUsers.has(userId);
+    const likeOnclick = yaLiked ? '' : (userId ? `darLike('${userId}', ${u.score}, this)` : '');
+    const aspectsHtml = (u.aspects||[]).map(a =>
+      `<span class="aspect-tag ${['trino','sextil','conjuncion','conjunción'].includes(a.aspecto)?'harmony':''}">${a.planeta}: ${a.aspecto}</span>`
+    ).join('');
+    const analisis = (u.analisis||'').replace(/^#+\s.+\n/,'').trim();
+    const likeBtn = userId
+      ? `<button class="like-btn ${yaLiked?'liked':''}" id="like-btn-${userId}" onclick="${likeOnclick}">
+          <span class="like-btn-icon">${yaLiked?'✦':'♡'}</span>
+          ${yaLiked?'Ya le diste like':'Me interesa'}
+        </button>`
+      : `<button class="like-btn" onclick="void(0)"><span class="like-btn-icon">♡</span> Me interesa</button>`;
+
+    cards.innerHTML += `
+      <div class="match-card">
+        <div class="match-rank ${i===0?'gold':''}">${rankLabel[i]}</div>
+        <div class="match-header">
+          <div>
+            <div class="match-name">${u.name}</div>
+            <div class="match-meta">${u.sol||''}${u.age?' · '+u.age+' años':''}</div>
+            ${u.bio?`<div class="match-meta" style="margin-top:.1rem;font-size:.78rem">${u.bio}</div>`:''}
+          </div>
+          <div class="match-score-wrap">
+            <div class="match-score">${u.score}%</div>
+            <div class="match-score-label">sinastría</div>
+          </div>
+        </div>
+        ${aspectsHtml?`<div class="match-aspects">${aspectsHtml}</div>`:''}
+        ${analisis?`<div class="match-analysis">${analisis}</div>`:''}
+        ${likeBtn}
+      </div>`;
+  });
+}
+
+// ── Likes ───────────────────────────────────────────────────────────────────
 async function darLike(haciaId, score, btn) {
   if (likedUsers.has(haciaId)) return;
   btn.disabled = true;
   try {
     const resp = await fetch(`${BACKEND_URL}/like`, {
-      method: 'POST', headers: {'Content-Type':'application/json'},
+      method:'POST', headers:{'Content-Type':'application/json'},
       body: JSON.stringify({ desde_id: currentUser.id, hacia_id: haciaId, score })
     });
     const data = await resp.json();
@@ -555,126 +793,115 @@ async function darLike(haciaId, score, btn) {
       btn.classList.add('liked');
       btn.innerHTML = '<span class="like-btn-icon">✦</span> Ya le diste like';
     }
-  } catch(err) {
-    btn.disabled = false;
-  }
+  } catch(e) { btn.disabled=false; }
 }
 
-// ── Chats ──────────────────────────────────────────────────────────────────
+// ── Chats ───────────────────────────────────────────────────────────────────
 function detenerChat() {
-  if (chatPollInterval) { clearInterval(chatPollInterval); chatPollInterval = null; }
+  if (chatPollInterval) { clearInterval(chatPollInterval); chatPollInterval=null; }
   currentMatchId = null;
 }
 
 function mostrarListaChats() {
   document.getElementById('chat-window').style.display = 'none';
-  document.getElementById('chats-list').style.display = 'block';
+  document.getElementById('chats-list').style.display  = 'block';
 }
 
 async function cargarChats() {
   document.getElementById('chats-loading').style.display = 'block';
   document.getElementById('chats-list').innerHTML = '';
-
   try {
     const resp = await fetch(`${BACKEND_URL}/mis-matches`, {
-      method: 'POST', headers: {'Content-Type':'application/json'},
+      method:'POST', headers:{'Content-Type':'application/json'},
       body: JSON.stringify({ user_id: currentUser.id })
     });
     const data = await resp.json();
     document.getElementById('chats-loading').style.display = 'none';
-
-    if (!data.matches || data.matches.length === 0) {
+    if (!data.matches || data.matches.length===0) {
       document.getElementById('chats-list').innerHTML =
-        `<div class="empty-state">Todavía no tenés matches mutuos.<br><br>
-        Explorá los astros en la pestaña <strong>Matches</strong><br>
-        y dale like a quien te interese ✦</div>`;
+        '<div class="empty-state">Todavía no tenés matches mutuos.<br><br>Explorá los astros en <strong>Matches</strong> y dale like a quien te interese ✦</div>';
       return;
     }
-
     data.matches.forEach(m => {
       document.getElementById('chats-list').innerHTML += `
         <div class="match-item" onclick="abrirChat('${m.match_id}','${m.nombre}')">
           <div>
             <div class="match-item-name">${m.nombre}</div>
-            <div class="match-item-meta">${m.sol || ''}</div>
+            <div class="match-item-meta">${m.sol||''}</div>
           </div>
           <div class="match-item-score">${m.score}%</div>
         </div>`;
     });
-  } catch(err) {
-    document.getElementById('chats-loading').style.display = 'none';
-  }
+  } catch(e) { document.getElementById('chats-loading').style.display='none'; }
 }
 
 async function abrirChat(matchId, nombre) {
   detenerChat();
   currentMatchId = matchId;
-  document.getElementById('chats-list').style.display = 'none';
-  document.getElementById('chat-messages').innerHTML = '';
+  document.getElementById('chats-list').style.display  = 'none';
+  document.getElementById('chat-messages').innerHTML   = '';
   document.getElementById('chat-with-name').textContent = nombre;
-  document.getElementById('chat-window').style.display = 'block';
+  document.getElementById('chat-window').style.display  = 'block';
   await cargarMensajes();
   chatPollInterval = setInterval(cargarMensajes, 5000);
 }
 
 async function volverAChats() {
-  detenerChat();
-  mostrarListaChats();
-  await cargarChats();
+  detenerChat(); mostrarListaChats(); await cargarChats();
 }
 
 async function cargarMensajes() {
   if (!currentMatchId) return;
   try {
     const resp = await fetch(`${BACKEND_URL}/mensajes`, {
-      method: 'POST', headers: {'Content-Type':'application/json'},
-      body: JSON.stringify({ action: 'get', match_id: currentMatchId })
+      method:'POST', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({ action:'get', match_id: currentMatchId })
     });
     const data = await resp.json();
     const container = document.getElementById('chat-messages');
     if (!container) return;
-    const atBottom = container.scrollHeight - container.clientHeight <= container.scrollTop + 20;
+    const atBottom = container.scrollHeight-container.clientHeight <= container.scrollTop+20;
     container.innerHTML = (data.mensajes||[]).map(m => {
-      const mine = m.autor_id === currentUser.id;
+      const mine = m.autor_id===currentUser.id;
       const time = new Date(m.created_at).toLocaleTimeString('es-AR',{hour:'2-digit',minute:'2-digit'});
       return `<div class="msg ${mine?'mine':''}">
         <div class="msg-text">${m.texto}</div>
         <div class="msg-time">${time}</div>
       </div>`;
-    }).join('') || `<div class="empty-state" style="padding:1.5rem">Iniciá la conversación ✦</div>`;
+    }).join('') || '<div class="empty-state" style="padding:1.5rem">Iniciá la conversación ✦</div>';
     if (atBottom) container.scrollTop = container.scrollHeight;
-  } catch(err) {}
+  } catch(e) {}
 }
 
 async function enviarMensaje() {
   const input = document.getElementById('chat-input');
   const texto = input.value.trim();
-  if (!texto || texto.length > 140 || !currentMatchId) return;
-  input.value = ''; updateCharCount();
+  if (!texto || texto.length>140 || !currentMatchId) return;
+  input.value=''; updateCharCount();
   try {
     await fetch(`${BACKEND_URL}/mensajes`, {
-      method: 'POST', headers: {'Content-Type':'application/json'},
-      body: JSON.stringify({ action: 'send', match_id: currentMatchId, autor_id: currentUser.id, texto })
+      method:'POST', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({ action:'send', match_id: currentMatchId, autor_id: currentUser.id, texto })
     });
     await cargarMensajes();
-  } catch(err) {}
+  } catch(e) {}
 }
 
 function updateCharCount() {
   const len = document.getElementById('chat-input').value.length;
-  const el = document.getElementById('char-count');
-  el.textContent = `${len} / 140`;
-  el.classList.toggle('over', len > 140);
+  const el  = document.getElementById('char-count');
+  el.textContent = len + ' / 140';
+  el.classList.toggle('over', len>140);
 }
 
 document.addEventListener('keydown', e => {
-  if (e.key === 'Enter' && !e.shiftKey && document.activeElement === document.getElementById('chat-input')) {
+  if (e.key==='Enter' && !e.shiftKey && document.activeElement===document.getElementById('chat-input')) {
     e.preventDefault(); enviarMensaje();
   }
 });
 
-function showError(id, msg) { const el=document.getElementById(id); if(el){el.innerHTML=msg;el.style.display='block';} }
-function hideError(id) { const el=document.getElementById(id); if(el) el.style.display='none'; }
+function showError(id,msg){const el=document.getElementById(id);if(el){el.innerHTML=msg;el.style.display='block';}}
+function hideError(id){const el=document.getElementById(id);if(el)el.style.display='none';}
 </script>
 </body>
 </html>
