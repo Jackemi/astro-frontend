@@ -317,7 +317,7 @@ footer{text-align:center;margin-top:2rem;font-family:'DM Mono',monospace;
       </div>
     </div>
 
-    <footer>Astro Matches · Prototype v0.3</footer>
+    <footer>Astro Matches · Prototype v0.5</footer>
   </div>
 </div>
 
@@ -474,7 +474,7 @@ async function cargarMatches() {
         user_id: currentUser.id
       })
     });
-    
+
     const data = await resp.json();
     if (data.error) throw new Error(data.error);
 
