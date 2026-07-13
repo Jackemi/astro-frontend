@@ -116,7 +116,7 @@ input[type=date],input[type=time]{color-scheme:light dark}
 .nav-logout:hover{border-color:var(--rust);color:var(--rust)}
 
 /* FEED LAYOUT — dos columnas */
-.feed-layout{display:grid;grid-template-columns:340px 1fr;gap:2rem;padding-top:2rem;align-items:start}
+.feed-layout{display:grid;grid-template-columns:440px 1fr;gap:2rem;padding-top:2rem;align-items:start}
 @media(max-width:900px){.feed-layout{grid-template-columns:1fr}}
 
 /* PANEL IZQUIERDO — carta natal */
@@ -636,7 +636,7 @@ function renderCartaNatal(perfil) {
 
   const svg = document.getElementById('rueda-svg');
   svg.innerHTML = '';
-  const CX=150, CY=150, R_OUT=130, R_IN=90, R_SIGN=110, R_PLANET=72;
+  const CX=150, CY=150, R_OUT=138, R_IN=95, R_SIGN=117, R_PLANET=76;
 
   // Fondo
   const bg = document.createElementNS('http://www.w3.org/2000/svg','circle');
@@ -673,7 +673,7 @@ function renderCartaNatal(perfil) {
     const t = document.createElementNS('http://www.w3.org/2000/svg','text');
     t.setAttribute('x',tx); t.setAttribute('y',ty);
     t.setAttribute('text-anchor','middle'); t.setAttribute('dominant-baseline','central');
-    t.setAttribute('font-size','11'); t.setAttribute('fill','var(--muted)');
+    t.setAttribute('font-size','13'); t.setAttribute('fill','var(--muted)');
     t.textContent = SIGN_GLYPHS[i];
     svg.appendChild(t);
   }
@@ -686,16 +686,19 @@ function renderCartaNatal(perfil) {
       const py = CY + R_PLANET * Math.sin(angle);
 
       // Punto
+      const dotColors = {'Sol':'#d4a017','Luna':'#bbb','Mercurio':'#888','Venus':'#c0392b','Marte':'#e74c3c','Jupiter':'#8e44ad','Saturno':'#2c3e50'};
       const dot = document.createElementNS('http://www.w3.org/2000/svg','circle');
-      dot.setAttribute('cx',px); dot.setAttribute('cy',py); dot.setAttribute('r','3');
-      dot.setAttribute('fill','var(--gold)');
+      dot.setAttribute('cx',px); dot.setAttribute('cy',py); dot.setAttribute('r','5');
+      dot.setAttribute('fill', dotColors[p.nombre] || 'var(--gold)');
       svg.appendChild(dot);
 
       // Glyph del planeta
+      const planetColors = {'Sol':'#d4a017','Luna':'#aaa','Mercurio':'#888','Venus':'#c0392b','Marte':'#e74c3c','Jupiter':'#8e44ad','Saturno':'#2c3e50'};
       const pt = document.createElementNS('http://www.w3.org/2000/svg','text');
-      pt.setAttribute('x', px+8); pt.setAttribute('y', py);
+      pt.setAttribute('x', px+7); pt.setAttribute('y', py);
       pt.setAttribute('text-anchor','start'); pt.setAttribute('dominant-baseline','central');
-      pt.setAttribute('font-size','10'); pt.setAttribute('fill','var(--ink)');
+      pt.setAttribute('font-size','13'); pt.setAttribute('fill', planetColors[p.nombre] || 'var(--ink)');
+      pt.setAttribute('font-weight','bold');
       pt.textContent = p.glyph;
       svg.appendChild(pt);
     });
